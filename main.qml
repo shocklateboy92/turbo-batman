@@ -17,8 +17,20 @@ ApplicationWindow {
         }
     }
 
+    Attribute {
+        id: yolo
+        Modifier {
+            id: mod
+            addition: 7
+        }
+    }
+
     Text {
-        text: qsTr("Hello World")
+        text: yolo.value
         anchors.centerIn: parent
+    }
+
+    Button {
+        onClicked: mod.addition += 7
     }
 }
