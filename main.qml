@@ -25,10 +25,10 @@ ApplicationWindow {
         }
     }
 
-    Text {
-        text: yolo.value
-        anchors.centerIn: parent
+    MainSheet {
+
     }
+    color: "white"
 
     Button {
         onClicked: mod.addition += 7

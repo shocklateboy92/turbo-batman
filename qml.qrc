@@ -3,5 +3,8 @@
         <file>main.qml</file>
         <file>Attribute.qml</file>
         <file>Modifier.qml</file>
+        <file>MainSheet.qml</file>
+        <file>DescriptionBox.qml</file>
+        <file>ValueBox.qml</file>
     </qresource>
 </RCC>
