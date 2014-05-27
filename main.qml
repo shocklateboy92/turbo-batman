@@ -29,6 +29,11 @@ ApplicationWindow {
     }
     Attribute {
         id: intelligence
+
+        Modifier {
+            name: "Headband of Vast Intelligence"
+            bonus: 6
+        }
     }
     Attribute {
         id: wisdom
@@ -37,6 +42,11 @@ ApplicationWindow {
         id: charistma
     }
 
+    Modifier {
+        name: "Base"
+        bonus: 10
+        targets: [strength, dexterity, constitution, intelligence, wisdom, charistma]
+    }
 
     SplitView {
         anchors.fill: parent
