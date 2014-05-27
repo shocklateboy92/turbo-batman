@@ -37,8 +37,27 @@ Grid {
         description: "Charistma"
     }
 
+    ValueBox {
+        target: strength
+    }
+    ValueBox {
+        target: dexterity
+    }
+    ValueBox {
+        target: constitution
+    }
+    ValueBox {
+        target: intelligence
+    }
+    ValueBox {
+        target: wisdom
+    }
+    ValueBox {
+        target: charistma
+    }
+
     Repeater {
-        model: 24
+        model: 18
         delegate: ValueBox {
 
         }

@@ -11,5 +11,6 @@ Item {
         for (var k in root.__mods_list) {
             sum = root.__mods_list[k].__eval(sum);
         }
+        return sum;
     }
 }
