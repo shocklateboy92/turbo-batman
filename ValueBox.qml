@@ -1,11 +1,11 @@
 import QtQuick 2.0
+import org.lasath.turbo_batman 1.0
 
 Item {
     width: 80
     height: 40
-    property Attribute target: Attribute {
-        value: ""
-    }
+
+    property Attribute target: Attribute {}
 
     Rectangle {
         anchors.fill: parent

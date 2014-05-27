@@ -2,6 +2,8 @@ import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.1
 
+import org.lasath.turbo_batman 1.0
+
 ApplicationWindow {
     visible: true
     width: 640
@@ -20,18 +22,18 @@ ApplicationWindow {
 
     Attribute {
         id: strength
-        Modifier {
+        modifiers: [Modifier {
             bonus: 10
             name: "Base"
-        }
+        },
         Modifier {
             bonus: -3
             name: "Point Buy"
-        }
+        },
         Modifier {
             bonus: 4
             name: "Race Bonus (Boggard)"
-        }
+        }]
     }
 
     Attribute {
