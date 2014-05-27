@@ -1,6 +1,7 @@
 #include "Attribute.h"
 #include <algorithm>
 #include <numeric>
+#include <QDebug>
 
 Attribute::Attribute(QObject *parent) :
     QAbstractListModel(parent), m_modifiers(this, m_data)

@@ -133,6 +133,7 @@ ApplicationWindow {
                     anchors.fill: parent
                     anchors.margins: 10
                     title: "Conditions"
+
                 }
             }
         }
@@ -143,6 +144,28 @@ ApplicationWindow {
                 title: "Modifiers"
                 anchors.margins: 10
                 anchors.fill: parent
+
+                ListView {
+                    anchors.fill: parent
+
+                    delegate: Row {
+                        spacing: 10
+                        Text {
+                            text: display.bonus
+                            width: 45
+                            font.pointSize: 18
+                            horizontalAlignment: Text.AlignRight
+                        }
+                        Text {
+                            text: display.name
+                            verticalAlignment: Text.AlignVCenter
+                            height: Math.max(parent.height, paintedHeight)
+                            font.pointSize: 10
+                        }
+                    }
+
+                    model: intelligence
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 
 Rectangle {
     id: rectangle1
+    // Math.max dis shit!
     width: 120
     height: 40
     color: "black"
