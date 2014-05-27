@@ -110,8 +110,14 @@ ApplicationWindow {
             orientation: Qt.Horizontal
             Layout.fillHeight: true
 
-            Rectangle {
-                color: "white"
+            Item {
+                Rectangle {
+                    color: "white"
+                    radius: 3
+                    anchors.fill: parent
+                    anchors.margins: 10
+                }
+
                 Layout.fillWidth: true
                 MainSheet {
                     anchors.fill: parent
@@ -119,13 +125,23 @@ ApplicationWindow {
                 }
             }
 
-            Rectangle {
+            Item {
                 width: parent.width * 0.4
+                GroupBox {
+                    anchors.fill: parent
+                    anchors.margins: 10
+                    title: "Conditions"
+                }
             }
         }
 
-        Rectangle {
-            height: 200
+        Item {
+            height: 400
+            GroupBox {
+                title: "Modifiers"
+                anchors.margins: 10
+                anchors.fill: parent
+            }
         }
     }
 }
