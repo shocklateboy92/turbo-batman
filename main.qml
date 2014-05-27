@@ -20,32 +20,86 @@ ApplicationWindow {
 
     Attribute {
         id: strength
+        Modifier {
+            bonus: 10
+            name: "Base"
+        }
+        Modifier {
+            bonus: -3
+            name: "Point Buy"
+        }
+        Modifier {
+            bonus: 4
+            name: "Race Bonus (Boggard)"
+        }
     }
+
     Attribute {
         id: dexterity
+        Modifier {
+            bonus: 10
+            name: "Base"
+        }
+        Modifier {
+            bonus: 2
+            name: "Point Buy"
+        }
+        Modifier {
+            bonus: -2
+            name: "Race Bonus (Boggard)"
+        }
     }
+
     Attribute {
         id: constitution
+        Modifier {
+            bonus: 10
+            name: "Base"
+        }
+        Modifier {
+            bonus: +4
+            name: "Point Buy"
+        }
+        Modifier {
+            bonus: 4
+            name: "Race Bonus (Boggard)"
+        }
     }
+
     Attribute {
         id: intelligence
-
+        Modifier {
+            bonus: 10
+            name: "Base"
+        }
+        Modifier {
+            bonus: 8
+            name: "Point Buy"
+        }
+        Modifier {
+            bonus: +2
+            name: "Race Bonus (Human)"
+        }
         Modifier {
             name: "Headband of Vast Intelligence"
             bonus: 6
         }
     }
+
     Attribute {
         id: wisdom
-    }
-    Attribute {
-        id: charistma
+        Modifier {
+            bonus: 10
+            name: "Base"
+        }
     }
 
-    Modifier {
-        name: "Base"
-        bonus: 10
-        targets: [strength, dexterity, constitution, intelligence, wisdom, charistma]
+    Attribute {
+        id: charistma
+        Modifier {
+            bonus: 10
+            name: "Base"
+        }
     }
 
     SplitView {
