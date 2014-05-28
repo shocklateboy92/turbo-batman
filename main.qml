@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.1
+import QtQuick.Controls.Styles 1.1
 
 import org.lasath.turbo_batman 1.0
 
@@ -150,13 +151,13 @@ ApplicationWindow {
 
                     delegate: Row {
                         spacing: 10
-                        Text {
+                        Label {
                             text: display.bonus
                             width: 45
                             font.pointSize: 18
                             horizontalAlignment: Text.AlignRight
                         }
-                        Text {
+                        Label {
                             text: display.name
                             verticalAlignment: Text.AlignVCenter
                             height: Math.max(parent.height, paintedHeight)
