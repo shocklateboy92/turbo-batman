@@ -59,7 +59,7 @@ TurboBatman {
             name: "Base"
         }
         Modifier {
-            bonus: 8
+            bonus: tfa_young.active ? 8 : 0
             name: "Point Buy"
         }
         Modifier {
@@ -85,6 +85,19 @@ TurboBatman {
         Modifier {
             bonus: 10
             name: "Base"
+        }
+    }
+
+    ConditionList {
+        id: conds
+
+        Condition {
+            id: tfa_young
+            name: "Threefold Aspect (Young)"
+        }
+        Condition {
+            id: swamp
+            name: "Funky Bonus"
         }
     }
 }

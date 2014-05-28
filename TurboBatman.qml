@@ -53,6 +53,20 @@ ApplicationWindow {
                     anchors.margins: 10
                     title: "Conditions"
 
+                    ListView {
+                        delegate: CheckBox {
+                            text: modelData.name
+
+                            onClicked: modelData.active = !modelData.active
+                        }
+
+                        anchors.fill: parent
+                        model: conds.conditions
+                    }
+
+                    Component.onCompleted: {
+                        console.log(JSON.stringify(conds.conditions))
+                    }
                 }
             }
         }

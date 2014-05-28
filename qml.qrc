@@ -5,5 +5,7 @@
         <file>DescriptionBox.qml</file>
         <file>ValueBox.qml</file>
         <file>TurboBatman.qml</file>
+        <file>Condition.qml</file>
+        <file>ConditionList.qml</file>
     </qresource>
 </RCC>
