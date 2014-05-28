@@ -4,5 +4,6 @@
         <file>MainSheet.qml</file>
         <file>DescriptionBox.qml</file>
         <file>ValueBox.qml</file>
+        <file>TurboBatman.qml</file>
     </qresource>
 </RCC>
