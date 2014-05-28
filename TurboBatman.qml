@@ -66,6 +66,7 @@ ApplicationWindow {
                         }
 
                         anchors.fill: parent
+                        anchors.margins: 5
                         model: conds.conditions
                     }
                 }

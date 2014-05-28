@@ -6,18 +6,22 @@ TurboBatman {
 
     Attribute {
         id: strength
-        modifiers: [Modifier {
+        modifiers: Modifier {
             bonus: 10
             name: "Base"
-        },
+        }
         Modifier {
             bonus: -3
             name: "Point Buy"
-        },
+        }
         Modifier {
             bonus: 4
             name: "Race Bonus (Boggard)"
-        }]
+        }
+        Modifier {
+            bonus: tfa_old.active ? -2 : 0
+            name: "Threefold Aspect"
+        }
     }
 
     Attribute {
@@ -33,6 +37,10 @@ TurboBatman {
         Modifier {
             bonus: -2
             name: "Race Bonus (Boggard)"
+        }
+        Modifier {
+            bonus: tfa_young.active ? 2 : tfa_mid.active ? -2 : tfa_old.active ? -2 : 0
+            name: "Threefold Aspect"
         }
     }
 
@@ -50,6 +58,10 @@ TurboBatman {
             bonus: 4
             name: "Race Bonus (Boggard)"
         }
+        Modifier {
+            bonus: tfa_young.active ? 2 : 0
+            name: "Threefold Aspect"
+        }
     }
 
     Attribute {
@@ -59,7 +71,7 @@ TurboBatman {
             name: "Base"
         }
         Modifier {
-            bonus: tfa_young.active ? 8 : 0
+            bonus: 8
             name: "Point Buy"
         }
         Modifier {
@@ -67,8 +79,20 @@ TurboBatman {
             name: "Race Bonus (Human)"
         }
         Modifier {
-            name: "Headband of Vast Intelligence"
             bonus: 6
+            name: "Headband of Vast Intelligence"
+        }
+        Modifier {
+            bonus: 1
+            name: "Level 4 Stat Increase"
+        }
+        Modifier {
+            bonus: 1
+            name: "Level 8 Stat Increase"
+        }
+        Modifier {
+            bonus: 1
+            name: "Level 12 Stat Increase"
         }
     }
 
@@ -77,6 +101,10 @@ TurboBatman {
         Modifier {
             bonus: 10
             name: "Base"
+        }
+        Modifier {
+            bonus: tfa_young.active ? -2 : tfa_mid.active ? 2 : tfa_old.active ? 4 : 0
+            name: "Threefold Aspect"
         }
     }
 
@@ -96,8 +124,12 @@ TurboBatman {
             name: "Threefold Aspect (Young)"
         }
         Condition {
-            id: swamp
-            name: "Funky Bonus"
+            id: tfa_mid
+            name: "Threefold Aspect (Adult)"
+        }
+        Condition {
+            id: tfa_old
+            name: "Threefold Aspect (Elderly)"
         }
     }
 }
