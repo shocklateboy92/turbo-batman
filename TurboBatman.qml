@@ -8,6 +8,9 @@ import QtQuick.Controls.Styles 1.1
 import org.lasath.turbo_batman 1.0
 
 ApplicationWindow {
+    id: batman
+    property alias currentAttribute: modifiers_list.model
+
     visible: true
     width: 640
     height: 480
@@ -78,6 +81,7 @@ ApplicationWindow {
 
                 ListView {
                     anchors.fill: parent
+                    id: modifiers_list
 
                     delegate: Row {
                         spacing: 10
@@ -94,14 +98,8 @@ ApplicationWindow {
                             font.pointSize: 10
                         }
                     }
-
-                    model: intelligence
                 }
             }
         }
-    }
-    Text {
-        anchors.centerIn: parent
-        text: intelligence.value
     }
 }

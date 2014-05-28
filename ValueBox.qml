@@ -23,4 +23,11 @@ Item {
         font.pixelSize: height
         color: "gray"
     }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            batman.currentAttribute = target;
+        }
+    }
 }
