@@ -3,8 +3,28 @@
 #include <numeric>
 #include <QDebug>
 
+static void append(QQmlListProperty<Modifier> *property, Modifier *value) {
+    Attribute *attr = qobject_cast<Attribute*>(property->object);
+    attr->addModifier(value);
+}
+
+static Modifier* at(QQmlListProperty<Modifier> *property, int index) {
+    Attribute *attr = qobject_cast<Attribute*>(property->object);
+    return attr->modifierAt(index);
+}
+
+static void clear(QQmlListProperty<Modifier> *property) {
+    Attribute *attr = qobject_cast<Attribute*>(property->object);
+    attr->clearData();
+}
+
+static int count(QQmlListProperty<Modifier> *property) {
+    Attribute *attr = qobject_cast<Attribute*>(property->object);
+    return attr->rowCount(QModelIndex());
+}
+
 Attribute::Attribute(QObject *parent) :
-    QAbstractListModel(parent), m_modifiers(this, m_data)
+    QAbstractListModel(parent), m_modifiers(this, this, &append, &count, &at, &clear)
 {
 }
 
@@ -50,10 +70,19 @@ Attribute::ModifierList Attribute::modifiers() const
     return m_modifiers;
 }
 
-void Attribute::setModifiers(ModifierList arg)
+Attribute::ModifierType* Attribute::modifierAt(int index) const
 {
-    if (!(m_modifiers == arg)) {
-        m_modifiers = arg;
-        emit modifiersChanged(arg);
-    }
+    return m_data.at(index);
+}
+
+void Attribute::addModifier(Modifier *mod)
+{
+    connect(mod, &Modifier::bonusChanged, this, &Attribute::valueChanged);
+    m_data.append(mod);
+}
+
+void Attribute::clearData()
+{
+    beginResetModel();
+    m_data.clear();
 }

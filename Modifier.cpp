@@ -1,4 +1,5 @@
 #include "Modifier.h"
+#include <QDebug>
 
 Modifier::Modifier(QObject *parent) :
     QObject(parent)

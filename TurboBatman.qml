@@ -57,15 +57,13 @@ ApplicationWindow {
                         delegate: CheckBox {
                             text: modelData.name
 
-                            onClicked: modelData.active = !modelData.active
+                            onClicked: {
+                                modelData.active = !modelData.active;
+                            }
                         }
 
                         anchors.fill: parent
                         model: conds.conditions
-                    }
-
-                    Component.onCompleted: {
-                        console.log(JSON.stringify(conds.conditions))
                     }
                 }
             }
@@ -101,5 +99,9 @@ ApplicationWindow {
                 }
             }
         }
+    }
+    Text {
+        anchors.centerIn: parent
+        text: intelligence.value
     }
 }

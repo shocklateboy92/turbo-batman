@@ -15,7 +15,7 @@ class Attribute : public QAbstractListModel
 
     Q_OBJECT
     Q_PROPERTY(QVariant value READ value NOTIFY valueChanged)
-    Q_PROPERTY(QQmlListProperty<Modifier> modifiers READ modifiers WRITE setModifiers NOTIFY modifiersChanged)
+    Q_PROPERTY(QQmlListProperty<Modifier> modifiers READ modifiers)
     Q_CLASSINFO("DefaultProperty", "modifiers")
 
 public:
@@ -26,17 +26,18 @@ public:
 
     QVariant value() const;
     ModifierList modifiers() const;
+    ModifierType* modifierAt(int index) const;
 
 signals:
     void valueChanged(QVariant arg);
-    void modifiersChanged(ModifierList arg);
 
 private:
     ModifierList m_modifiers;
     ModifierDataList m_data;
 
 public slots:
-    void setModifiers(ModifierList arg);
+    void addModifier(Modifier *mod);
+    void clearData();
 };
 
 #endif // ATTRIBUTE_H
