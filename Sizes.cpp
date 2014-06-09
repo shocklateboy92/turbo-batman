@@ -1,10 +1,9 @@
 #include "Sizes.h"
 
-#include <QFontMetrics>
 #include <QApplication>
 
 Sizes::Sizes(QObject *parent) :
-    QObject(parent)
+    QObject(parent), m_metrics(QApplication::font())
 {
 }
 
@@ -32,4 +31,14 @@ int Sizes::pxH(int points)
 int Sizes::pxW(int points)
 {
     return pixelWidth(points);
+}
+
+int Sizes::mHeight(qreal pt)
+{
+    return m_metrics.boundingRect("M").size().height() * pt;
+}
+
+int Sizes::mWidth(qreal pt)
+{
+    return m_metrics.boundingRect("M").size().width() * pt;
 }

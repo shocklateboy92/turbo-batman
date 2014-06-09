@@ -2,6 +2,7 @@
 #define SIZES_H
 
 #include <QObject>
+#include <QFontMetrics>
 
 class Sizes : public QObject
 {
@@ -20,6 +21,15 @@ public:
 
     Q_INVOKABLE
     int pxW(int points);
+
+    Q_INVOKABLE
+    int mHeight(qreal pt);
+
+    Q_INVOKABLE
+    int mWidth(qreal pt);
+
+private:
+    QFontMetrics m_metrics;
 };
 
 #endif // SIZES_H
