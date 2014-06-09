@@ -43,9 +43,12 @@ ApplicationWindow {
                 }
 
                 Layout.fillWidth: true
-                MainSheet {
+                ScrollView {
                     anchors.fill: parent
                     anchors.margins: 20
+                    contentItem: SkillsArea {
+
+                    }
                 }
             }
 

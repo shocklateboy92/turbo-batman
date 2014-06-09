@@ -9,5 +9,6 @@
         <file>ConditionList.qml</file>
         <file>SkillList.qml</file>
         <file>Skill.qml</file>
+        <file>SkillsArea.qml</file>
     </qresource>
 </RCC>

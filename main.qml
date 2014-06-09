@@ -134,6 +134,7 @@ TurboBatman {
     }
 
     SkillList {
+        id: skill_list
         Skill {
             name: "Acrobatics"
         }
