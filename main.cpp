@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Modifier>("org.lasath.turbo_batman", 1, 0, "Modifier");
 
     QQmlApplicationEngine engine;
-    Sizes sizes();
+    Sizes sizes;
     engine.rootContext()->setContextProperty("sizes", &sizes);
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
