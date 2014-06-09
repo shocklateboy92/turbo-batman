@@ -2,14 +2,12 @@ import QtQuick 2.0
 import QtQuick.Window 2.1
 
 Row {
-    spacing: 20
+    spacing: sizes.mWidth(2)
     Column {
-        id: yolo
         Repeater {
             model: skill_list.skills
             delegate: Text {
                 text: modelData.name.toUpperCase()
-                font.pointSize: 10
             }
         }
     }
@@ -21,7 +19,12 @@ Row {
             }
         }
     }
+
     Component.onCompleted: {
-        console.log(yolo.width)
+        console.log(yolo.width);
+        console.log(sizes.pixelWidth(8));
+        console.log(sizes.pixelHeight(8));
+        console.log(sizes.mHeight(1.5));
+        console.log(sizes.mWidth(1));
     }
 }
