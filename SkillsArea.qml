@@ -7,10 +7,14 @@ Row {
         id: yolo
         Repeater {
             model: skill_list.skills
-            delegate: Text {
+            delegate: Rectangle {Text {
                 text: modelData.name.toUpperCase()
                 font.pointSize: 10
+                id: t
             }
+            width: Math.max(t.paintedWidth, yolo.width)
+            height: t.height
+            color: "red"}
         }
     }
     Column {
