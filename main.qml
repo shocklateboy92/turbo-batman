@@ -132,4 +132,82 @@ TurboBatman {
             name: "Threefold Aspect (Elderly)"
         }
     }
+
+    SkillList {
+        Skill {
+            name: "Acrobatics"
+        }
+        Skill {
+            name: "Appraise"
+        }
+        Skill {
+            name: "Bluff"
+        }
+        Skill {
+            name: "Climb"
+        }
+        Skill {
+            name: "Craft"
+        }
+        Skill {
+            name: "Diplomacy"
+        }
+        Skill {
+            name: "Disable Device"
+        }
+        Skill {
+            name: "Disguise"
+        }
+        Skill {
+            name: "Escape Artist"
+        }
+        Skill {
+            name: "Fly"
+        }
+        Skill {
+            name: "Handle Animal"
+        }
+        Skill {
+            name: "Heal"
+        }
+        Skill {
+            name: "Intimidate"
+        }
+        Skill {
+            name: "Knowledge"
+        }
+        Skill {
+            name: "Linguistics"
+        }
+        Skill {
+            name: "Perception"
+        }
+        Skill {
+            name: "Perform"
+        }
+        Skill {
+            name: "Profession"
+        }
+        Skill {
+            name: "Ride"
+        }
+        Skill {
+            name: "Sense Motive"
+        }
+        Skill {
+            name: "Sleight of Hand"
+        }
+        Skill {
+            name: "Spellcraft"
+        }
+        Skill {
+            name: "Survival"
+        }
+        Skill {
+            name: "Swim"
+        }
+        Skill {
+            name: "Use Magic Device"
+        }
+    }
 }

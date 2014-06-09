@@ -7,5 +7,7 @@
         <file>TurboBatman.qml</file>
         <file>Condition.qml</file>
         <file>ConditionList.qml</file>
+        <file>SkillList.qml</file>
+        <file>Skill.qml</file>
     </qresource>
 </RCC>
