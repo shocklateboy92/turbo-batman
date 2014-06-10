@@ -46,8 +46,17 @@ ApplicationWindow {
                 ScrollView {
                     anchors.fill: parent
                     anchors.margins: 20
-                    contentItem: SkillsArea {
-
+                    contentItem: Item {
+                        SkillsArea {
+                            id: ci
+                            transform: Scale {
+                                id: cis
+                                xScale: 1
+                                yScale: xScale
+                            }
+                        }
+                        width: ci.width * cis.xScale
+                        height: ci.height * cis.yScale
                     }
                 }
             }
