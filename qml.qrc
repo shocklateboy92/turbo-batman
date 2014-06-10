@@ -10,5 +10,6 @@
         <file>SkillList.qml</file>
         <file>Skill.qml</file>
         <file>SkillsArea.qml</file>
+        <file>AbilityScore.qml</file>
     </qresource>
 </RCC>

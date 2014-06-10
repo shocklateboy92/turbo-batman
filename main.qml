@@ -4,9 +4,12 @@ import org.lasath.turbo_batman 1.0
 
 TurboBatman {
 
-    Attribute {
+    AbilityScore {
         id: strength
-        modifiers: Modifier {
+        title: "STR"
+        description: "Strength"
+
+        Modifier {
             bonus: 10
             name: "Base"
         }
@@ -24,8 +27,11 @@ TurboBatman {
         }
     }
 
-    Attribute {
+    AbilityScore {
         id: dexterity
+        title: "dex"
+        description: "dexterity"
+
         Modifier {
             bonus: 10
             name: "Base"
@@ -44,8 +50,11 @@ TurboBatman {
         }
     }
 
-    Attribute {
+    AbilityScore {
         id: constitution
+        title: "con"
+        description: "Constitution"
+
         Modifier {
             bonus: 10
             name: "Base"
@@ -64,8 +73,11 @@ TurboBatman {
         }
     }
 
-    Attribute {
+    AbilityScore {
         id: intelligence
+        title: "int"
+        description: "Intelligence"
+
         Modifier {
             bonus: 10
             name: "Base"
@@ -96,8 +108,11 @@ TurboBatman {
         }
     }
 
-    Attribute {
+    AbilityScore {
         id: wisdom
+        title: "wis"
+        description: "Wisdom"
+
         Modifier {
             bonus: 10
             name: "Base"
@@ -108,8 +123,11 @@ TurboBatman {
         }
     }
 
-    Attribute {
+    AbilityScore {
         id: charistma
+        title: "cha"
+        description: "Charistma"
+
         Modifier {
             bonus: 10
             name: "Base"
@@ -137,78 +155,107 @@ TurboBatman {
         id: skill_list
         Skill {
             name: "Acrobatics"
+            mod: dexterity
         }
         Skill {
             name: "Appraise"
+            mod: intelligence
         }
         Skill {
             name: "Bluff"
+            mod: charistma
         }
         Skill {
             name: "Climb"
+            mod: strength
         }
         Skill {
             name: "Craft"
+            mod: intelligence
         }
         Skill {
             name: "Diplomacy"
+            mod: charistma
         }
         Skill {
             name: "Disable Device"
+            mod: dexterity
         }
         Skill {
             name: "Disguise"
+            mod: charistma
         }
         Skill {
             name: "Escape Artist"
+            mod: dexterity
         }
         Skill {
             name: "Fly"
+            mod: dexterity
         }
         Skill {
             name: "Handle Animal"
+            mod: charistma
         }
         Skill {
             name: "Heal"
+            mod: wisdom
         }
         Skill {
             name: "Intimidate"
+            mod: charistma
         }
         Skill {
             name: "Knowledge"
+            mod: intelligence
         }
         Skill {
             name: "Linguistics"
+            mod: intelligence
         }
         Skill {
             name: "Perception"
+            mod: wisdom
         }
         Skill {
             name: "Perform"
+            mod: charistma
         }
         Skill {
             name: "Profession"
+            mod: wisdom
         }
         Skill {
             name: "Ride"
+            mod: dexterity
         }
         Skill {
             name: "Sense Motive"
+            mod: wisdom
         }
         Skill {
             name: "Sleight of Hand"
+            mod: dexterity
         }
         Skill {
             name: "Spellcraft"
+            mod: intelligence
+        }
+        Skill {
+            name: "Stealth"
+            mod: dexterity
         }
         Skill {
             name: "Survival"
+            mod: wisdom
         }
         Skill {
             name: "Swim"
+            mod: strength
         }
         Skill {
             name: "Use Magic Device"
+            mod: charistma
         }
     }
 }
