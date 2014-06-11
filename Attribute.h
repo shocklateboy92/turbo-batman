@@ -15,7 +15,8 @@ class Attribute : public QAbstractListModel
 
     Q_OBJECT
     Q_PROPERTY(QVariant value READ value NOTIFY valueChanged)
-    Q_PROPERTY(QQmlListProperty<Modifier> modifiers READ modifiers)
+    Q_PROPERTY(QQmlListProperty<Modifier> modifiers
+               READ modifiers NOTIFY modifiersChanged)
     Q_CLASSINFO("DefaultProperty", "modifiers")
 
 public:
@@ -30,6 +31,7 @@ public:
 
 signals:
     void valueChanged(QVariant arg);
+    void modifiersChanged(ModifierList modifiers);
 
 private:
     ModifierList m_modifiers;

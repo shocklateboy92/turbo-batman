@@ -79,10 +79,14 @@ void Attribute::addModifier(Modifier *mod)
 {
     connect(mod, &Modifier::bonusChanged, this, &Attribute::valueChanged);
     m_data.append(mod);
+
+    emit modifiersChanged(m_modifiers);
+    emit valueChanged(value());
 }
 
 void Attribute::clearData()
 {
     beginResetModel();
     m_data.clear();
+    endResetModel();
 }
