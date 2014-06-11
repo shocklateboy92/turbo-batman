@@ -4,9 +4,17 @@ import org.lasath.turbo_batman 1.0
 Attribute {
     property string name: "<unnamed_skill>"
 
-    property Attribute mod
+    property AbilityScore mod
+    property int ranks
+    property int misc: value - ranks - mod.abilityMod
 
-    property Attribute ranks
+    Modifier {
+        name: "Ability Score (" + mod.description + ")"
+        bonus: mod.abilityMod
+    }
 
-    property Attribute misc
+    Modifier {
+        name: "Ranks"
+        bonus: ranks
+    }
 }

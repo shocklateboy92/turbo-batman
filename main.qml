@@ -240,6 +240,10 @@ TurboBatman {
         Skill {
             name: "Spellcraft"
             mod: intelligence
+            Modifier {
+                name: "Class Skill"
+                bonus: 3
+            }
         }
         Skill {
             name: "Stealth"

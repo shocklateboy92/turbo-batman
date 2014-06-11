@@ -19,36 +19,17 @@ Row {
     }
 
     Column {
+        id: col_totals
         Repeater {
             model: skill_list.skills
-            delegate: Text {
-                height: sizes.mHeight(1)
-                width: sizes.mWidth(4)
-
-                text: modelData.mod.value
-                color: "gray"
-                horizontalAlignment: Text.AlignHCenter
-
-                Rectangle {
-                    color: "black"
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                    height: 1
-                }
+            delegate: SkillValueBox {
+                text: modelData.value
             }
         }
     }
 
-    Column {
-        Repeater {
-            model: skill_list.skills.length
-            delegate: Text {
-                text: "="
-            }
-        }
+    SkillsAreaTextColumn {
+        text: "="
     }
 
     Column {
@@ -61,99 +42,40 @@ Row {
     }
 
     Column {
+        id: col_mods
         Repeater {
             model: skill_list.skills
-            delegate: Text {
-                height: sizes.mHeight(1)
-                width: sizes.mWidth(4)
-
-                text: modelData.mod.value
-                color: "gray"
-                horizontalAlignment: Text.AlignHCenter
-
-                Rectangle {
-                    color: "black"
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                    height: 1
-                }
+            delegate: SkillValueBox {
+                text: modelData.mod.abilityMod
             }
         }
     }
 
-    Column {
-        Repeater {
-            model: skill_list.skills.length
-            delegate: Text {
-                text: "+"
-            }
-        }
+    SkillsAreaTextColumn {
+        text: "+"
     }
 
     Column {
+        id: col_ranks
         Repeater {
             model: skill_list.skills
-            delegate: Text {
-                height: sizes.mHeight(1)
-                width: sizes.mWidth(4)
-
-                text: modelData.mod.value
-                color: "gray"
-                horizontalAlignment: Text.AlignHCenter
-
-                Rectangle {
-                    color: "black"
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                    height: 1
-                }
+            delegate: SkillValueBox {
+                text: modelData.ranks
             }
         }
     }
 
-    Column {
-        Repeater {
-            model: skill_list.skills.length
-            delegate: Text {
-                text: "+"
-            }
-        }
+    SkillsAreaTextColumn {
+        text: "+"
     }
 
     Column {
+        id: col_misc
         Repeater {
             model: skill_list.skills
-            delegate: Text {
-                height: sizes.mHeight(1)
-                width: sizes.mWidth(4)
-
-                text: modelData.mod.value
-                color: "gray"
-                horizontalAlignment: Text.AlignHCenter
-
-                Rectangle {
-                    color: "black"
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: parent.bottom
-                    }
-                    height: 1
-                }
+            delegate: SkillValueBox {
+                text: modelData.misc
             }
         }
-    }
-
-    Component.onCompleted: {
-        console.log(sizes.pixelWidth(8));
-        console.log(sizes.pixelHeight(8));
-        console.log(sizes.mHeight(1.5));
-        console.log(sizes.mWidth(1));
     }
 }
