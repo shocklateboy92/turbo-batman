@@ -208,14 +208,17 @@ TurboBatman {
         Skill {
             name: "Knowledge"
             mod: intelligence
+            class_skill: true
         }
         Skill {
             name: "Linguistics"
             mod: intelligence
+            class_skill: true
         }
         Skill {
             name: "Perception"
             mod: wisdom
+            class_skill: true
         }
         Skill {
             name: "Perform"
@@ -224,6 +227,7 @@ TurboBatman {
         Skill {
             name: "Profession"
             mod: wisdom
+            class_skill: true
         }
         Skill {
             name: "Ride"
@@ -240,10 +244,7 @@ TurboBatman {
         Skill {
             name: "Spellcraft"
             mod: intelligence
-            Modifier {
-                name: "Class Skill"
-                bonus: 3
-            }
+            class_skill: true
         }
         Skill {
             name: "Stealth"
@@ -260,6 +261,7 @@ TurboBatman {
         Skill {
             name: "Use Magic Device"
             mod: charistma
+            class_skill: true
         }
     }
 }
