@@ -13,5 +13,6 @@
         <file>AbilityScore.qml</file>
         <file>SkillValueBox.qml</file>
         <file>SkillsAreaTextColumn.qml</file>
+        <file>AbilityScoresArea.qml</file>
     </qresource>
 </RCC>

@@ -8,50 +8,9 @@ Item {
         spacing: 20
 //        anchors.fill: parent
         Row {
-            spacing: sizes.mHeight(1)
-            Column {
-                spacing: sizes.mWidth(1)
-                Repeater {
-                    model: abilityScore_list.data
-                    delegate: DescriptionBox {
-                        title: modelData.title
-                        description: modelData.description
-                    }
-                }
-            }
-
-            Grid {
+            spacing: abilityScores.columnSpacing
+            AbilityScoresArea {
                 id: abilityScores
-                flow: GridView.TopToBottom
-                spacing: sizes.mWidth(1)
-                rows: 6
-                columns: 4
-
-                ValueBox {
-                    target: strength
-                }
-                ValueBox {
-                    target: dexterity
-                }
-                ValueBox {
-                    target: constitution
-                }
-                ValueBox {
-                    target: intelligence
-                }
-                ValueBox {
-                    target: wisdom
-                }
-                ValueBox {
-                    target: charistma
-                }
-
-                Repeater {
-                    model: 18
-                    delegate: ValueBox {
-
-                    }
-                }
             }
 
             ColumnLayout {

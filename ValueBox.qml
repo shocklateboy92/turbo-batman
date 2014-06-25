@@ -3,9 +3,10 @@ import org.lasath.turbo_batman 1.0
 
 Item {
     height: sizes.mHeight(2)
-    width: sizes.mWidth(5)
+    width: sizes.mWidth(6)
 
     property Attribute target: Attribute {}
+    property string overrideText
 
     Rectangle {
         anchors.fill: parent
@@ -17,7 +18,7 @@ Item {
         id: textbox
         readOnly: true
         anchors.fill: parent
-        text: target.value
+        text: overrideText ? overrideText : target.value
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.pixelSize: height
