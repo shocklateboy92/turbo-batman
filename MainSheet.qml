@@ -3,48 +3,29 @@ import QtQuick.Layouts 1.1
 
 Item {
     anchors.centerIn: parent
+    Row {
     ColumnLayout {
         spacing: 20
 //        anchors.fill: parent
         Row {
-            spacing: 10
+            spacing: sizes.mHeight(1)
+            Column {
+                spacing: sizes.mWidth(1)
+                Repeater {
+                    model: abilityScore_list.data
+                    delegate: DescriptionBox {
+                        title: modelData.title
+                        description: modelData.description
+                    }
+                }
+            }
 
             Grid {
                 id: abilityScores
                 flow: GridView.TopToBottom
-                spacing: 10
+                spacing: sizes.mWidth(1)
                 rows: 6
-                columns: 5
-
-                DescriptionBox {
-                    title: "STR"
-                    description: "Strength"
-                }
-
-                DescriptionBox {
-                    title: "dex"
-                    description: "dexterity"
-                }
-
-                DescriptionBox {
-                    title: "con"
-                    description: "Constitution"
-                }
-
-                DescriptionBox {
-                    title: "int"
-                    description: "Intelligence"
-                }
-
-                DescriptionBox {
-                    title: "wis"
-                    description: "Wisdom"
-                }
-
-                DescriptionBox {
-                    title: "cha"
-                    description: "Charistma"
-                }
+                columns: 4
 
                 ValueBox {
                     target: strength
@@ -118,54 +99,59 @@ Item {
                 }
             }
         }
-        RowLayout {
-            DescriptionBox {
-                title: "AC"
-                description: "Armour Class"
-                Layout.fillWidth: true
-            }
-            ValueBox {
-            }
-            Text {
-                text: "="
-            }
-            Text {
-                text: "10"
-//                font.pixelSize:
-                Layout.fillWidth: true
-            }
-            ValueBox {
-            }
-            Text {
-                text: "+"
-            }
-            ValueBox {
-            }
-            Text {
-                text: "+"
-            }
-            ValueBox {
-            }
-            Text {
-                text: "+"
-            }
-            ValueBox {
-            }
-            Text {
-                text: "+"
-            }
-            ValueBox {
-            }
-            Text {
-                text: "+"
-            }
-            ValueBox {
-            }
-            Text {
-                text: "+"
-            }
-            ValueBox {
-            }
-        }
+
+//        RowLayout {
+//            DescriptionBox {
+//                title: "AC"
+//                description: "Armour Class"
+//                Layout.fillWidth: true
+//            }
+//            ValueBox {
+//            }
+//            Text {
+//                text: "="
+//            }
+//            Text {
+//                text: "10"
+////                font.pixelSize:
+//                Layout.fillWidth: true
+//            }
+//            ValueBox {
+//            }
+//            Text {
+//                text: "+"
+//            }
+//            ValueBox {
+//            }
+//            Text {
+//                text: "+"
+//            }
+//            ValueBox {
+//            }
+//            Text {
+//                text: "+"
+//            }
+//            ValueBox {
+//            }
+//            Text {
+//                text: "+"
+//            }
+//            ValueBox {
+//            }
+//            Text {
+//                text: "+"
+//            }
+//            ValueBox {
+//            }
+//            Text {
+//                text: "+"
+//            }
+//            ValueBox {
+//            }
+//        }
+    }
+    SkillsArea {
+
+    }
     }
 }

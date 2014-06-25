@@ -3,12 +3,11 @@ import QtQuick.Layouts 1.1
 
 Rectangle {
     id: rectangle1
-    // Math.max dis shit!
-    width: 120
-    height: 40
+    width: Math.max(parent.width, title_text.paintedWidth, description_text.paintedWidth)
+    height: sizes.mHeight(2)
     color: "black"
-    border.color: "black"
-    border.width: 2
+//    border.color: "black"
+//    border.width: sizes.mWidth(2)
     property string title: "ATR"
     property string description: "Description"
 
@@ -16,15 +15,15 @@ Rectangle {
         id: title_text
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        height: parent.height * 0.6
+        height: parent.height * 0.65
         color: "#ffffff"
         text: title.toUpperCase()
         font.pixelSize: height
+
         anchors.right: parent.right
-        anchors.rightMargin: 0
         anchors.left: parent.left
-        anchors.leftMargin: 0
         anchors.top: parent.top
+        anchors.topMargin: sizes.mWidth(0.1)
     }
 
     Text {
@@ -34,6 +33,7 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
 
+        anchors.bottomMargin: sizes.mWidth(0.1)
         anchors.right: parent.right
         anchors.left: parent.left
         anchors.bottom: parent.bottom

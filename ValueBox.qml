@@ -2,15 +2,15 @@ import QtQuick 2.0
 import org.lasath.turbo_batman 1.0
 
 Item {
-    width: 80
-    height: 40
+    height: sizes.mHeight(2)
+    width: sizes.mWidth(5)
 
     property Attribute target: Attribute {}
 
     Rectangle {
         anchors.fill: parent
         border.color: "black"
-        border.width: 2
+        border.width: 1
     }
 
     TextEdit {

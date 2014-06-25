@@ -4,133 +4,137 @@ import org.lasath.turbo_batman 1.0
 
 TurboBatman {
 
-    AbilityScore {
-        id: strength
-        title: "STR"
-        description: "Strength"
+    AttributeList {
+        id: abilityScore_list
 
-        Modifier {
-            bonus: 10
-            name: "Base"
-        }
-        Modifier {
-            bonus: -3
-            name: "Point Buy"
-        }
-        Modifier {
-            bonus: 4
-            name: "Race Bonus (Boggard)"
-        }
-        Modifier {
-            bonus: tfa_old.active ? -2 : 0
-            name: "Threefold Aspect"
-        }
-    }
+        AbilityScore {
+            id: strength
+            title: "STR"
+            description: "Strength"
 
-    AbilityScore {
-        id: dexterity
-        title: "dex"
-        description: "dexterity"
+            Modifier {
+                bonus: 10
+                name: "Base"
+            }
+            Modifier {
+                bonus: -3
+                name: "Point Buy"
+            }
+            Modifier {
+                bonus: 4
+                name: "Race Bonus (Boggard)"
+            }
+            Modifier {
+                bonus: tfa_old.active ? -2 : 0
+                name: "Threefold Aspect"
+            }
+        }
 
-        Modifier {
-            bonus: 10
-            name: "Base"
-        }
-        Modifier {
-            bonus: 2
-            name: "Point Buy"
-        }
-        Modifier {
-            bonus: -2
-            name: "Race Bonus (Boggard)"
-        }
-        Modifier {
-            bonus: tfa_young.active ? 2 : tfa_mid.active ? -2 : tfa_old.active ? -2 : 0
-            name: "Threefold Aspect"
-        }
-    }
+        AbilityScore {
+            id: dexterity
+            title: "dex"
+            description: "dexterity"
 
-    AbilityScore {
-        id: constitution
-        title: "con"
-        description: "Constitution"
+            Modifier {
+                bonus: 10
+                name: "Base"
+            }
+            Modifier {
+                bonus: 2
+                name: "Point Buy"
+            }
+            Modifier {
+                bonus: -2
+                name: "Race Bonus (Boggard)"
+            }
+            Modifier {
+                bonus: tfa_young.active ? 2 : tfa_mid.active ? -2 : tfa_old.active ? -2 : 0
+                name: "Threefold Aspect"
+            }
+        }
 
-        Modifier {
-            bonus: 10
-            name: "Base"
-        }
-        Modifier {
-            bonus: +4
-            name: "Point Buy"
-        }
-        Modifier {
-            bonus: 4
-            name: "Race Bonus (Boggard)"
-        }
-        Modifier {
-            bonus: tfa_young.active ? 2 : 0
-            name: "Threefold Aspect"
-        }
-    }
+        AbilityScore {
+            id: constitution
+            title: "con"
+            description: "Constitution"
 
-    AbilityScore {
-        id: intelligence
-        title: "int"
-        description: "Intelligence"
+            Modifier {
+                bonus: 10
+                name: "Base"
+            }
+            Modifier {
+                bonus: +4
+                name: "Point Buy"
+            }
+            Modifier {
+                bonus: 4
+                name: "Race Bonus (Boggard)"
+            }
+            Modifier {
+                bonus: tfa_young.active ? 2 : 0
+                name: "Threefold Aspect"
+            }
+        }
 
-        Modifier {
-            bonus: 10
-            name: "Base"
-        }
-        Modifier {
-            bonus: 8
-            name: "Point Buy"
-        }
-        Modifier {
-            bonus: +2
-            name: "Race Bonus (Human)"
-        }
-        Modifier {
-            bonus: 6
-            name: "Headband of Vast Intelligence"
-        }
-        Modifier {
-            bonus: 1
-            name: "Level 4 Stat Increase"
-        }
-        Modifier {
-            bonus: 1
-            name: "Level 8 Stat Increase"
-        }
-        Modifier {
-            bonus: 1
-            name: "Level 12 Stat Increase"
-        }
-    }
+        AbilityScore {
+            id: intelligence
+            title: "int"
+            description: "Intelligence"
 
-    AbilityScore {
-        id: wisdom
-        title: "wis"
-        description: "Wisdom"
-
-        Modifier {
-            bonus: 10
-            name: "Base"
+            Modifier {
+                bonus: 10
+                name: "Base"
+            }
+            Modifier {
+                bonus: 8
+                name: "Point Buy"
+            }
+            Modifier {
+                bonus: +2
+                name: "Race Bonus (Human)"
+            }
+            Modifier {
+                bonus: 6
+                name: "Headband of Vast Intelligence"
+            }
+            Modifier {
+                bonus: 1
+                name: "Level 4 Stat Increase"
+            }
+            Modifier {
+                bonus: 1
+                name: "Level 8 Stat Increase"
+            }
+            Modifier {
+                bonus: 1
+                name: "Level 12 Stat Increase"
+            }
         }
-        Modifier {
-            bonus: tfa_young.active ? -2 : tfa_mid.active ? 2 : tfa_old.active ? 4 : 0
-            name: "Threefold Aspect"
+
+        AbilityScore {
+            id: wisdom
+            title: "wis"
+            description: "Wisdom"
+
+            Modifier {
+                bonus: 10
+                name: "Base"
+            }
+            Modifier {
+                bonus: tfa_young.active ? -2 : tfa_mid.active ? 2 : tfa_old.active ? 4 : 0
+                name: "Threefold Aspect"
+            }
         }
-    }
 
-    AbilityScore {
-        id: charistma
-        title: "cha"
-        description: "Charistma"
+        AbilityScore {
+            id: charistma
+            title: "cha"
+            description: "Charistma"
 
-        Modifier {
-            bonus: 10
-            name: "Base"
+            Modifier {
+                bonus: 10
+                name: "Base"
+            }
         }
     }
 
@@ -151,7 +155,7 @@ TurboBatman {
         }
     }
 
-    SkillList {
+    AttributeList {
         id: skill_list
         Skill {
             name: "Acrobatics"

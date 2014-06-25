@@ -7,7 +7,7 @@
         <file>TurboBatman.qml</file>
         <file>Condition.qml</file>
         <file>ConditionList.qml</file>
-        <file>SkillList.qml</file>
+        <file>AttributeList.qml</file>
         <file>Skill.qml</file>
         <file>SkillsArea.qml</file>
         <file>AbilityScore.qml</file>

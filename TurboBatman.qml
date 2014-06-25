@@ -47,7 +47,7 @@ ApplicationWindow {
                     anchors.fill: parent
                     anchors.margins: 20
                     contentItem: Item {
-                        SkillsArea {
+                        MainSheet {
                             id: ci
                             transform: Scale {
                                 id: cis
