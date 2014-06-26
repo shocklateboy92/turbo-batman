@@ -7,7 +7,7 @@ Rectangle {
 
     color: "black"
     property string title: "ATR"
-    property string description: "Description"
+    property string description
 
     ColumnLayout {
         anchors.fill: parent
@@ -37,6 +37,7 @@ Rectangle {
 
             Layout.fillHeight: true
             Layout.fillWidth: true
+            visible: text
         }
     }
 }

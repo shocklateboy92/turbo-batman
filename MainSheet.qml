@@ -34,6 +34,14 @@ Item {
 
             SavesArea {
             }
+
+            Rectangle {
+                width: parent.width
+                height: sizes.mHeight(1)
+            }
+
+            BabArea {
+            }
         }
         SkillsArea {
 
