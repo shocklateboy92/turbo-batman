@@ -17,5 +17,6 @@
         <file>HitPointsArea.qml</file>
         <file>LabeledValueBox.qml</file>
         <file>GapText.qml</file>
+        <file>ArmourClassArea.qml</file>
     </qresource>
 </RCC>

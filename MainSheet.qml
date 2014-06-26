@@ -6,7 +6,7 @@ Item {
     Row {
         Column {
             Row {
-                spacing: abilityScores.columnSpacing
+                spacing: sizes.mWidth(2)
                 AbilityScoresArea {
                     id: abilityScores
                 }
@@ -15,55 +15,8 @@ Item {
 //                    height: parent.height
                 }
             }
-
-//        RowLayout {
-//            DescriptionBox {
-//                title: "AC"
-//                description: "Armour Class"
-//                Layout.fillWidth: true
-//            }
-//            ValueBox {
-//            }
-//            Text {
-//                text: "="
-//            }
-//            Text {
-//                text: "10"
-////                font.pixelSize:
-//                Layout.fillWidth: true
-//            }
-//            ValueBox {
-//            }
-//            Text {
-//                text: "+"
-//            }
-//            ValueBox {
-//            }
-//            Text {
-//                text: "+"
-//            }
-//            ValueBox {
-//            }
-//            Text {
-//                text: "+"
-//            }
-//            ValueBox {
-//            }
-//            Text {
-//                text: "+"
-//            }
-//            ValueBox {
-//            }
-//            Text {
-//                text: "+"
-//            }
-//            ValueBox {
-//            }
-//            Text {
-//                text: "+"
-//            }
-//            ValueBox {
-//            }
+            ArmourClassArea {
+            }
         }
         SkillsArea {
 

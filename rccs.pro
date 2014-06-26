@@ -2,6 +2,7 @@ TEMPLATE = app
 
 QT += qml quick widgets
 CONFIG += c++11
+CONFIG+=qml_debug
 
 SOURCES += main.cpp \
     Attribute.cpp \

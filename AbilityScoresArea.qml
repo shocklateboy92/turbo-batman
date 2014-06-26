@@ -14,6 +14,7 @@ Row {
             delegate: DescriptionBox {
                 title: modelData.title
                 description: modelData.description
+                width: sizes.mWidth(12)
             }
         }
     }
