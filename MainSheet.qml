@@ -5,14 +5,24 @@ Item {
     anchors.centerIn: parent
     Row {
         Column {
-            Row {
-                spacing: sizes.mWidth(2)
+            Item {
+                width: parent.width
+                height: hitPointsArea.height
+
                 AbilityScoresArea {
                     id: abilityScores
+                    anchors {
+                        left: parent.left
+                        top: parent.top
+                    }
                 }
 
                 HitPointsArea {
-//                    height: parent.height
+                    id: hitPointsArea
+                    anchors {
+                        right: parent.right
+                        top: parent.top
+                    }
                 }
             }
             ArmourClassArea {
