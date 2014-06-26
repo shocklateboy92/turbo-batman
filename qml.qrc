@@ -19,5 +19,6 @@
         <file>GapText.qml</file>
         <file>ArmourClassArea.qml</file>
         <file>Area.qml</file>
+        <file>SecondaryACArea.qml</file>
     </qresource>
 </RCC>

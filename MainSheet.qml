@@ -25,7 +25,11 @@ Item {
                     }
                 }
             }
+
             ArmourClassArea {
+            }
+
+            SecondaryACArea {
             }
         }
         SkillsArea {
