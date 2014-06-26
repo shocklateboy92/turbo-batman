@@ -18,5 +18,6 @@
         <file>LabeledValueBox.qml</file>
         <file>GapText.qml</file>
         <file>ArmourClassArea.qml</file>
+        <file>Area.qml</file>
     </qresource>
 </RCC>

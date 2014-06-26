@@ -1,8 +1,7 @@
 import QtQuick 2.0
 
-Rectangle {
+Area {
     id: root
-    border.color: "red"
     property int columnSpacing: sizes.mWidth(1.5)
     property int rowSpacing: sizes.mHeight(0.5)
 

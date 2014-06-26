@@ -1,7 +1,6 @@
 import QtQuick 2.0
 
-Rectangle {
-    border.color: "red"
+Area {
     width: top_row.childrenRect.width
     height: sizes.mHeight(16)
 
