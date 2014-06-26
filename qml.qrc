@@ -14,5 +14,8 @@
         <file>SkillValueBox.qml</file>
         <file>SkillsAreaTextColumn.qml</file>
         <file>AbilityScoresArea.qml</file>
+        <file>HitPointsArea.qml</file>
+        <file>LabeledValueBox.qml</file>
+        <file>GapText.qml</file>
     </qresource>
 </RCC>

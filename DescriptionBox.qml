@@ -1,9 +1,8 @@
 import QtQuick 2.0
-import QtQuick.Layouts 1.1
 
 Rectangle {
     id: rectangle1
-    width: Math.max(parent.width, title_text.paintedWidth, description_text.paintedWidth + sizes.mWidth(0.5))
+    width: Math.max(sizes.mWidth(10), title_text.paintedWidth, description_text.paintedWidth + sizes.mWidth(0.5))
     height: sizes.mHeight(2)
     color: "black"
 //    border.color: "black"
