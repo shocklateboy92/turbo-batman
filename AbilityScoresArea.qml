@@ -28,6 +28,7 @@ Row {
         Repeater {
             model: abilityScore_list.data
             delegate: ValueBox {
+                target: modelData
             }
         }
 
