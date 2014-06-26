@@ -42,6 +42,13 @@ Item {
 
             BabArea {
             }
+
+            Spacer {
+                height: sizes.mHeight(1)
+            }
+
+            CombatManeuversArea {
+            }
         }
         SkillsArea {
 

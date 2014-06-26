@@ -23,6 +23,7 @@
         <file>SavesArea.qml</file>
         <file>BabArea.qml</file>
         <file>RoundedDescriptionBox.qml</file>
+        <file>CombatManeuversArea.qml</file>
         <file>Spacer.qml</file>
     </qresource>
 </RCC>
