@@ -21,5 +21,7 @@
         <file>Area.qml</file>
         <file>SecondaryACArea.qml</file>
         <file>SavesArea.qml</file>
+        <file>BabArea.qml</file>
+        <file>RoundedDescriptionBox.qml</file>
     </qresource>
 </RCC>
