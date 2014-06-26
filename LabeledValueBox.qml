@@ -14,7 +14,7 @@ Column {
         width: parent.width
 
         font: sizes.tinyFont
-        wrapMode: Text.Wrap
+        wrapMode: Text.WordWrap
 
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
