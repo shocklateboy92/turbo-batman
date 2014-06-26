@@ -20,5 +20,6 @@
         <file>ArmourClassArea.qml</file>
         <file>Area.qml</file>
         <file>SecondaryACArea.qml</file>
+        <file>SavesArea.qml</file>
     </qresource>
 </RCC>

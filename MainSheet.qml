@@ -31,6 +31,9 @@ Item {
 
             SecondaryACArea {
             }
+
+            SavesArea {
+            }
         }
         SkillsArea {
 
