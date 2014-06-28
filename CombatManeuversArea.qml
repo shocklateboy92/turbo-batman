@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Area {
     width: sizes.mWidth(80)
-    height: sizes.mHeight(3.6)
+    height: sizes.mHeight(8)
 
     Row {
         id: row_cmb
