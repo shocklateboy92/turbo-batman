@@ -9,7 +9,7 @@ Area {
         anchors {
             left: parent.left
             top: parent.top
-            bottom: parent.bottom
+//            bottom: parent.bottom
         }
 
         RoundedDescriptionBox {
@@ -43,8 +43,65 @@ Area {
         }
 
         LabeledValueBox {
-            id: der
             text: "Size Modifier"
+        }
+    }
+
+    Row {
+        id: row_cmd
+        anchors {
+            left: parent.left
+            top: row_cmb.bottom
+            topMargin: sizes.mHeight(0.5)
+            bottom: parent.bottom
+        }
+
+        RoundedDescriptionBox {
+            title: "CMD"
+            width: sizes.mWidth(28)
+        }
+
+        Spacer {
+            width: sizes.mWidth(2)
+        }
+
+        LabeledValueBox {
+             text: "TOTAL"
+        }
+        GapText {
+            text: "="
+        }
+
+        LabeledValueBox {
+            text: "BAB"
+        }
+        GapText {
+            text: "+"
+        }
+
+        LabeledValueBox {
+            text: "Strength Modifier"
+        }
+        GapText {
+            text: "+"
+        }
+
+        LabeledValueBox {
+            text: "Dexterity Modifier"
+        }
+        GapText {
+            text: "+"
+        }
+
+        LabeledValueBox {
+            text: "Size Modifier"
+        }
+        GapText {
+            text: "+"
+        }
+        GapText {
+            text: "10"
+            font.pointSize: 13
         }
     }
 
@@ -56,6 +113,6 @@ Area {
             right: parent.right
             top: parent.top
         }
-        height: der.height
+        height: row_cmb.height
     }
 }
