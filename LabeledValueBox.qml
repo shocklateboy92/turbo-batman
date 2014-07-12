@@ -7,6 +7,7 @@ Column {
 
     ValueBox {
         id: vbox
+        width: Math.max(parent.width, sizes.mWidth(6))
     }
 
     Text {
