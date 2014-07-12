@@ -50,8 +50,13 @@ Item {
             CombatManeuversArea {
             }
         }
-        SkillsArea {
 
+        Column {
+            MovementsArea {
+            }
+
+            SkillsArea {
+            }
         }
     }
 }

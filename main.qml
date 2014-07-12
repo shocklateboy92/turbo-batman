@@ -210,7 +210,7 @@ TurboBatman {
             mod: charistma
         }
         Skill {
-            name: "Knowledge"
+            name: "Knowledge (Dungeoneering)"
             mod: intelligence
             class_skill: true
         }
