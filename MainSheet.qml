@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.1
 Item {
     anchors.centerIn: parent
     Row {
+        spacing: sizes.mWidth(2)
         Column {
             Item {
                 width: parent.width
