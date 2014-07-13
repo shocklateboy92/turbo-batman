@@ -24,6 +24,7 @@ Area {
 
         LabeledValueBox {
             text: "TOTAL"
+            target: armour_class
         }
         GapText {
             text: "= 10 +"

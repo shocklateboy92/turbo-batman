@@ -32,7 +32,9 @@ Item {
         readOnly: true
         anchors.fill: parent
         text: overrideText ? overrideText : target.value
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment: textInnerTop ?
+                                 Text.AlignRight :
+                                 Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.pixelSize: height
         color: "gray"

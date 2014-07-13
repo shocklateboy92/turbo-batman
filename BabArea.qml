@@ -15,6 +15,7 @@ Area {
 
         ValueBox {
             width: sizes.mWidth(12)
+            target: base_attack_bonus
         }
 
         DescriptionBox {

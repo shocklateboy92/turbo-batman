@@ -49,7 +49,17 @@ Area {
         }
 
         Repeater {
-            model: 18
+            model: abilityScore_list.data
+            delegate: ValueBox {
+                target: modelData
+                overrideText: modelData.abilityMod > 0 ?
+                                  "+" + modelData.abilityMod :
+                                  modelData.abilityMod
+            }
+        }
+
+        Repeater {
+            model: 12
             delegate: ValueBox {
             }
         }

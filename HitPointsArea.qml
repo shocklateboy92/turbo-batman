@@ -21,6 +21,7 @@ Area {
                 width: sizes.mWidth(14)
                 textInnerTop: "Total"
                 height: parent.height
+                target: hit_points
             }
 
             ValueBox {
@@ -78,6 +79,7 @@ Area {
 
             LabeledValueBox {
                 text: "Total"
+                target: initiative
             }
 
             GapText {

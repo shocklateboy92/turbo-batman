@@ -1,5 +1,5 @@
 import QtQuick 2.0
 
 Rectangle {
-    border.color: "red"
+//    border.color: "red"
 }

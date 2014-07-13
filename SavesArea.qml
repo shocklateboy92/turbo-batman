@@ -36,11 +36,15 @@ Area {
         }
 
         Repeater {
-            model: 3
+            model: [
+                ["Fortitude", "Constitution", fortitude],
+                ["Reflex", "Dexterity", reflex],
+                ["Will", "Wisdom", will]
+            ]
             delegate:  Row {
                 DescriptionBox {
-                    title: "Fortitude"
-                    description: "Consitution"
+                    title: modelData[0]
+                    description: modelData[1]
                     width: sizes.mWidth(16)
                 }
 
@@ -50,6 +54,7 @@ Area {
                 }
 
                 ValueBox {
+                    target: modelData[2]
                 }
                 GapText{
                     text: "="
