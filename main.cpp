@@ -1,5 +1,6 @@
 #include "Attribute.h"
 #include "Modifier.h"
+#include "ModifierSource.h"
 #include "Sizes.h"
 
 #include <QApplication>
@@ -12,6 +13,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Attribute>("org.lasath.turbo_batman", 1, 0, "Attribute");
     qmlRegisterType<Modifier>("org.lasath.turbo_batman", 1, 0, "Modifier");
+    qmlRegisterType<ModifierSource>("org.lasath.turbo_batman", 1, 0, "ModifierSource");
 
     QQmlApplicationEngine engine;
     Sizes sizes;

@@ -26,5 +26,6 @@
         <file>CombatManeuversArea.qml</file>
         <file>Spacer.qml</file>
         <file>MovementsArea.qml</file>
+        <file>Bonus.qml</file>
     </qresource>
 </RCC>

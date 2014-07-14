@@ -7,7 +7,8 @@ CONFIG+=qml_debug
 SOURCES += main.cpp \
     Attribute.cpp \
     Modifier.cpp \
-    Sizes.cpp
+    Sizes.cpp \
+    ModifierSource.cpp
 
 RESOURCES += qml.qrc
 
@@ -20,4 +21,5 @@ include(deployment.pri)
 HEADERS += \
     Attribute.h \
     Modifier.h \
-    Sizes.h
+    Sizes.h \
+    ModifierSource.h

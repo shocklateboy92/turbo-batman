@@ -12,15 +12,15 @@ TurboBatman {
             title: "STR"
             description: "Strength"
 
-            Modifier {
+            Bonus {
                 bonus: 10
                 name: "Base"
             }
-            Modifier {
+            Bonus {
                 bonus: -3
                 name: "Point Buy"
             }
-            Modifier {
+            Bonus {
                 bonus: tfa_old.active ? -2 : 0
                 name: "Threefold Aspect"
             }
@@ -31,19 +31,19 @@ TurboBatman {
             title: "dex"
             description: "dexterity"
 
-            Modifier {
+            Bonus {
                 bonus: 10
                 name: "Base"
             }
-            Modifier {
+            Bonus {
                 bonus: 2
                 name: "Point Buy"
             }
-            Modifier {
+            Bonus {
                 bonus: 2
                 name: "Race Bonus (Catfolk)"
             }
-            Modifier {
+            Bonus {
                 bonus: tfa_young.active ? 2 : tfa_mid.active ? -2 : tfa_old.active ? -2 : 0
                 name: "Threefold Aspect"
             }
@@ -54,15 +54,15 @@ TurboBatman {
             title: "con"
             description: "Constitution"
 
-            Modifier {
+            Bonus {
                 bonus: 10
                 name: "Base"
             }
-            Modifier {
+            Bonus {
                 bonus: +4
                 name: "Point Buy"
             }
-            Modifier {
+            Bonus {
                 bonus: tfa_young.active ? 2 : 0
                 name: "Threefold Aspect"
             }
@@ -73,31 +73,31 @@ TurboBatman {
             title: "int"
             description: "Intelligence"
 
-            Modifier {
+            Bonus {
                 bonus: 10
                 name: "Base"
             }
-            Modifier {
+            Bonus {
                 bonus: 8
                 name: "Point Buy"
             }
-            Modifier {
+            Bonus {
                 bonus: +2
                 name: "Race Bonus (Human)"
             }
-            Modifier {
+            Bonus {
                 bonus: 6
                 name: "Headband of Vast Intelligence"
             }
-            Modifier {
+            Bonus {
                 bonus: 1
                 name: "Level 4 Stat Increase"
             }
-            Modifier {
+            Bonus {
                 bonus: 1
                 name: "Level 8 Stat Increase"
             }
-            Modifier {
+            Bonus {
                 bonus: 1
                 name: "Level 12 Stat Increase"
             }
@@ -108,11 +108,11 @@ TurboBatman {
             title: "wis"
             description: "Wisdom"
 
-            Modifier {
+            Bonus {
                 bonus: 10
                 name: "Base"
             }
-            Modifier {
+            Bonus {
                 bonus: tfa_young.active ? -2 : tfa_mid.active ? 2 : tfa_old.active ? 4 : 0
                 name: "Threefold Aspect"
             }
@@ -123,7 +123,7 @@ TurboBatman {
             title: "cha"
             description: "Charistma"
 
-            Modifier {
+            Bonus {
                 bonus: 10
                 name: "Base"
             }
@@ -184,7 +184,7 @@ TurboBatman {
             mod: charistma
             ranks: 2
 
-            Modifier {
+            Bonus {
                 bonus: 4
                 name: "Race Bonus (Catfolk)"
             }
@@ -251,7 +251,7 @@ TurboBatman {
             class_skill: true
             ranks: 14
 
-            Modifier {
+            Bonus {
                 bonus: 2
                 name: "Race Bonus (Catfolk)"
             }
@@ -262,7 +262,7 @@ TurboBatman {
             class_skill: true
             ranks: 14
 
-            Modifier {
+            Bonus {
                 bonus: 2
                 name: "Race Bonus (Catfolk)"
             }
@@ -320,7 +320,7 @@ TurboBatman {
         Skill {
             name: "Sense Motive"
             mod: wisdom
-            Modifier {
+            Bonus {
                 bonus: 2
                 name: "Misc Mod"
             }
@@ -359,11 +359,11 @@ TurboBatman {
 
     Attribute {
         id: initiative
-        Modifier {
+        Bonus {
             bonus: dexterity.abilityMod
             name: "Dexterity Modifier"
         }
-        Modifier {
+        Bonus {
             bonus: 4
             name: "Improved Initiative"
         }
@@ -371,7 +371,7 @@ TurboBatman {
 
     Attribute {
         id: hit_points
-        Modifier {
+        Bonus {
             bonus: 125
             name: "Stuff"
         }
@@ -380,32 +380,32 @@ TurboBatman {
     Attribute {
         id: armour_class
 
-        Modifier {
+        Bonus {
             bonus: 10
             name: "Base"
         }
-        Modifier {
-            bonus: ring_shield.active ? 4 : 0
-            name: ring_shield.name
+        Bonus {
+            bonus: 4
+            source: ring_shield
         }
-        Modifier {
-            bonus: wand_mage_armor.active ? 4 : 0
-            name: wand_mage_armor.name
+        Bonus {
+            bonus: 4
+            source: wand_mage_armor
         }
 
-        Modifier {
+        Bonus {
             bonus: 1
             name: "Armour Bonus (From somewhere)"
         }
-        Modifier {
+        Bonus {
             bonus: 1
             name: "Natural Armour (From somewhere)"
         }
-        Modifier {
+        Bonus {
             bonus: dexterity.abilityMod
             name: "Dexterity Modifier"
         }
-        Modifier {
+        Bonus {
             bonus: 1
             name: "Ring of Protection"
         }
@@ -413,15 +413,15 @@ TurboBatman {
 
     Attribute {
         id: fortitude
-        Modifier {
+        Bonus {
             bonus: 4
             name: "Base"
         }
-        Modifier {
+        Bonus {
             bonus: constitution.abilityMod
             name: "Ability Modifier"
         }
-        Modifier {
+        Bonus {
             bonus: 5
             name: "Cloak of Resistance"
         }
@@ -429,15 +429,15 @@ TurboBatman {
 
     Attribute {
         id: reflex
-        Modifier {
+        Bonus {
             bonus: 4
             name: "Base"
         }
-        Modifier {
+        Bonus {
             bonus: dexterity.abilityMod
             name: "Ability Modifier"
         }
-        Modifier {
+        Bonus {
             bonus: 5
             name: "Cloak of Resistance"
         }
@@ -445,15 +445,15 @@ TurboBatman {
 
     Attribute {
         id: will
-        Modifier {
+        Bonus {
             bonus: 9
             name: "Base"
         }
-        Modifier {
+        Bonus {
             bonus: wisdom.abilityMod
             name: "Ability Modifier"
         }
-        Modifier {
+        Bonus {
             bonus: 5
             name: "Cloak of Resistance"
         }
@@ -461,7 +461,7 @@ TurboBatman {
 
     Attribute {
         id: base_attack_bonus
-        Modifier {
+        Bonus {
             bonus: 6
             name: "Witch BAB Progression"
         }
