@@ -27,5 +27,6 @@
         <file>Spacer.qml</file>
         <file>MovementsArea.qml</file>
         <file>Bonus.qml</file>
+        <file>Save.qml</file>
     </qresource>
 </RCC>

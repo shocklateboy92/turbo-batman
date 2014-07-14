@@ -159,29 +159,29 @@ TurboBatman {
         id: skill_list
         Skill {
             name: "Acrobatics"
-            mod: dexterity
+            ability: dexterity
         }
         Skill {
             name: "Appraise"
-            mod: intelligence
+            ability: intelligence
             ranks: 6
         }
         Skill {
             name: "Bluff"
-            mod: charistma
+            ability: charistma
         }
         Skill {
             name: "Climb"
-            mod: strength
+            ability: strength
         }
         Skill {
             name: "Craft (Alchemy)"
-            mod: intelligence
+            ability: intelligence
             ranks: 7
         }
         Skill {
             name: "Diplomacy"
-            mod: charistma
+            ability: charistma
             ranks: 2
 
             Bonus {
@@ -191,63 +191,63 @@ TurboBatman {
         }
         Skill {
             name: "Disable Device"
-            mod: dexterity
+            ability: dexterity
         }
         Skill {
             name: "Disguise"
-            mod: charistma
+            ability: charistma
         }
         Skill {
             name: "Escape Artist"
-            mod: dexterity
+            ability: dexterity
         }
         Skill {
             name: "Fly"
-            mod: dexterity
+            ability: dexterity
             ranks: 14
         }
         Skill {
             name: "Handle Animal"
-            mod: charistma
+            ability: charistma
             ranks: 14
         }
         Skill {
             name: "Heal"
-            mod: wisdom
+            ability: wisdom
         }
         Skill {
             name: "Intimidate"
-            mod: charistma
+            ability: charistma
             class_skill: true
             ranks: 2
         }
         Skill {
             name: "Knowledge (Arcana)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 14
         }
         Skill {
             name: "Knowledge (Dungeoneering)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 2
         }
         Skill {
             name: "Knowledge (Engineering)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 2
         }
         Skill {
             name: "Knowledge (Geography)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 3
         }
         Skill {
             name: "Knowledge (History)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 14
 
@@ -258,7 +258,7 @@ TurboBatman {
         }
         Skill {
             name: "Knowledge (Local)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 14
 
@@ -269,57 +269,57 @@ TurboBatman {
         }
         Skill {
             name: "Knowledge (Nature)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 9
         }
         Skill {
             name: "Knowledge (Nobility)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 2
         }
         Skill {
             name: "Knowledge (Planes)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 3
         }
         Skill {
             name: "Knowledge (Religion)"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 14
         }
         Skill {
             name: "Linguistics"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 3
         }
         Skill {
             name: "Perception"
-            mod: wisdom
+            ability: wisdom
             class_skill: true
             ranks: 14
         }
         Skill {
             name: "Perform"
-            mod: charistma
+            ability: charistma
         }
         Skill {
             name: "Profession"
-            mod: wisdom
+            ability: wisdom
             class_skill: true
         }
         Skill {
             name: "Ride"
-            mod: dexterity
+            ability: dexterity
             ranks: 4
         }
         Skill {
             name: "Sense Motive"
-            mod: wisdom
+            ability: wisdom
             Bonus {
                 bonus: 2
                 name: "Misc Mod"
@@ -327,31 +327,31 @@ TurboBatman {
         }
         Skill {
             name: "Sleight of Hand"
-            mod: dexterity
+            ability: dexterity
             ranks: 1
         }
         Skill {
             name: "Spellcraft"
-            mod: intelligence
+            ability: intelligence
             class_skill: true
             ranks: 14
         }
         Skill {
             name: "Stealth"
-            mod: dexterity
+            ability: dexterity
         }
         Skill {
             name: "Survival"
-            mod: wisdom
+            ability: wisdom
         }
         Skill {
             name: "Swim"
-            mod: strength
+            ability: strength
             ranks: 3
         }
         Skill {
             name: "Use Magic Device"
-            mod: charistma
+            ability: charistma
             class_skill: true
             ranks: 11
         }
@@ -360,7 +360,7 @@ TurboBatman {
     Attribute {
         id: initiative
         Bonus {
-            bonus: dexterity.abilityMod
+            bonus: dexterity.mod
             name: "Dexterity Modifier"
         }
         Bonus {
@@ -402,7 +402,7 @@ TurboBatman {
             name: "Natural Armour (From somewhere)"
         }
         Bonus {
-            bonus: dexterity.abilityMod
+            bonus: dexterity.mod
             name: "Dexterity Modifier"
         }
         Bonus {
@@ -411,59 +411,36 @@ TurboBatman {
         }
     }
 
-    Attribute {
+    Save {
         id: fortitude
-        Bonus {
-            bonus: 4
-            name: "Base"
-        }
-        Bonus {
-            bonus: constitution.abilityMod
-            name: "Ability Modifier"
-        }
-        Bonus {
-            bonus: 5
-            name: "Cloak of Resistance"
-        }
+        ability: constitution
     }
 
-    Attribute {
+    Save {
         id: reflex
-        Bonus {
-            bonus: 4
-            name: "Base"
-        }
-        Bonus {
-            bonus: dexterity.abilityMod
-            name: "Ability Modifier"
-        }
-        Bonus {
-            bonus: 5
-            name: "Cloak of Resistance"
-        }
+        ability: dexterity
     }
 
-    Attribute {
+    Save {
         id: will
-        Bonus {
-            bonus: 9
-            name: "Base"
-        }
-        Bonus {
-            bonus: wisdom.abilityMod
-            name: "Ability Modifier"
-        }
-        Bonus {
-            bonus: 5
-            name: "Cloak of Resistance"
-        }
+        ability: wisdom
+        primary: true
     }
 
     Attribute {
         id: base_attack_bonus
         Bonus {
-            bonus: 6
-            name: "Witch BAB Progression"
+            bonus: level.value / 2
+            name: "Witch BAB Progression (Half)"
+        }
+    }
+
+    Attribute {
+        id: level
+
+        Bonus {
+            bonus: 14
+            name: "Witch"
         }
     }
 }

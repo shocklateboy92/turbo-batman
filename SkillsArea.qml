@@ -41,7 +41,7 @@ Area {
             Repeater {
                 model: skill_list.skills
                 delegate: Text {
-                    text: modelData.mod.title.toUpperCase()
+                    text: modelData.ability.title.toUpperCase()
                 }
             }
         }
@@ -51,7 +51,7 @@ Area {
             Repeater {
                 model: skill_list.skills
                 delegate: SkillValueBox {
-                    text: modelData.mod.abilityMod
+                    text: modelData.ability.mod
                 }
             }
         }

@@ -52,9 +52,9 @@ Area {
             model: abilityScore_list.data
             delegate: ValueBox {
                 target: modelData
-                overrideText: modelData.abilityMod > 0 ?
-                                  "+" + modelData.abilityMod :
-                                  modelData.abilityMod
+                overrideText: modelData.mod > 0 ?
+                                  "+" + modelData.mod :
+                                  modelData.mod
             }
         }
 

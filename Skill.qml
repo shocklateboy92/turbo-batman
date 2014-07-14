@@ -5,14 +5,14 @@ Attribute {
     id: root
     property string name: "<unnamed_skill>"
 
-    property AbilityScore mod
+    property AbilityScore ability
     property int ranks
-    property int misc: value - ranks - mod.abilityMod
+    property int misc: value - ranks - ability.mod
     property bool class_skill: false
 
     Modifier {
-        name: "Ability Score (" + mod.description + ")"
-        bonus: mod.abilityMod
+        name: "Ability Score (" + ability.description + ")"
+        bonus: ability.mod
     }
 
     Modifier {
