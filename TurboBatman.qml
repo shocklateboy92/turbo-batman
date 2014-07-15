@@ -92,25 +92,8 @@ ApplicationWindow {
                 anchors.margins: 10
                 anchors.fill: parent
 
-                ListView {
-                    anchors.fill: parent
+                ModifiersListView {
                     id: modifiers_list
-
-                    delegate: Row {
-                        spacing: 10
-                        Label {
-                            text: display.bonus
-                            width: 45
-                            font.pointSize: 18
-                            horizontalAlignment: Text.AlignRight
-                        }
-                        Label {
-                            text: display.name
-                            verticalAlignment: Text.AlignVCenter
-                            height: Math.max(parent.height, paintedHeight)
-                            font.pointSize: 10
-                        }
-                    }
                 }
             }
         }

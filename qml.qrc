@@ -28,5 +28,6 @@
         <file>MovementsArea.qml</file>
         <file>Bonus.qml</file>
         <file>Save.qml</file>
+        <file>ModifiersListView.qml</file>
     </qresource>
 </RCC>
