@@ -2,7 +2,7 @@
 #include <QDebug>
 
 Modifier::Modifier(QObject *parent) :
-    QObject(parent), m_source(nullptr)
+    QObject(parent), m_bonus(0), m_source(nullptr)
 {
 }
 

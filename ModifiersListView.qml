@@ -45,16 +45,22 @@ Column {
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
                     validator: IntValidator {}
 
-                    Keys.onDeletePressed: {
-                        if (tedit.length == 0 && tnum.length == 0
-                                && tnum.cursorPosition == 0) {
-                            display.removeRow(index);
-                        }
-                    }
+//                    Keys.onDeletePressed: {
+//                        if (tedit.length == 0 && tnum.length == 0
+//                                && tnum.cursorPosition == 0) {
+//                            display.removeRow(index);
+//                        }
+//                    }
 
                     onTextChanged: {
                         display.bonus = text;
                     }
+//                    Connections {
+//                        target: display
+//                        onBonusChanged: {
+//                            tnum.text = display.bonus;
+//                        }
+//                    }
                 }
 
                 TextEdit {
@@ -70,6 +76,9 @@ Column {
                                                     Positioner.index,
                                                     cursorPosition)
                     KeyNavigation.left: tnum
+                    onTextChanged: {
+                        display.name = text;
+                    }
                 }
             }
 
@@ -88,6 +97,11 @@ Column {
                     break;
                 case Qt.Key_Down:
                     nextItem = rep.itemAt(index +1);
+                    break;
+                case Qt.Key_Return:
+                    rep.model.insertRows(index +1, 1);
+                    rep.itemAt(index +1).takeFocus(0, 0);
+                    event.accepted = true;
                     break;
                 }
 

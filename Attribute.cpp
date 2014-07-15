@@ -90,3 +90,19 @@ void Attribute::clearData()
     m_data.clear();
     endResetModel();
 }
+
+
+bool Attribute::insertRows(int row, int count, const QModelIndex &parent)
+{
+    beginInsertRows(parent, row, row + count);
+
+    ModifierType *mod = new ModifierType();
+    connect(mod, &Modifier::bonusChanged,
+            this, &Attribute::valueChanged);
+    m_data.insert(row, mod);
+
+    emit modifiersChanged(modifiers());
+    endInsertRows();
+
+    return true;
+}

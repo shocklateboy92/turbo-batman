@@ -40,6 +40,9 @@ private:
 public slots:
     void addModifier(Modifier *mod);
     void clearData();
+
+    bool insertRows(int row, int count,
+                    const QModelIndex &parent = QModelIndex()) override;
 };
 
 #endif // ATTRIBUTE_H
