@@ -51,6 +51,10 @@ Column {
                             display.removeRow(index);
                         }
                     }
+
+                    onTextChanged: {
+                        display.bonus = text;
+                    }
                 }
 
                 TextEdit {
