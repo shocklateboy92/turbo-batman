@@ -15,7 +15,7 @@ Column {
 
         delegate: Item {
             height: childrenRect.height
-            width: parent.width
+            width: modifiers_list.width
 
             Rectangle {
                 id: bg
@@ -33,6 +33,7 @@ Column {
                     id: tnum
                     width: sizes.mWidth(6)
 
+//                    readOnly: display.persistent
                     text: display.bonus
                     font.pointSize: 18
                     renderType: TextEdit.NativeRendering
@@ -45,22 +46,15 @@ Column {
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
                     validator: IntValidator {}
 
-//                    Keys.onDeletePressed: {
-//                        if (tedit.length == 0 && tnum.length == 0
-//                                && tnum.cursorPosition == 0) {
-//                            display.removeRow(index);
-//                        }
-//                    }
-
-                    onTextChanged: {
-                        display.bonus = text;
+                    Binding {
+                        target: display
+                        property: "bonus"
+                        value: tnum.text
+                        when: !display.persistent
                     }
-//                    Connections {
-//                        target: display
-//                        onBonusChanged: {
-//                            tnum.text = display.bonus;
-//                        }
-//                    }
+
+                    KeyNavigation.left: tnum
+                    KeyNavigation.tab: tedit
                 }
 
                 TextEdit {
@@ -75,9 +69,12 @@ Column {
                     Keys.onPressed: processKeyEvent(event,
                                                     Positioner.index,
                                                     cursorPosition)
-                    KeyNavigation.left: tnum
-                    onTextChanged: {
-                        display.name = text;
+
+                    Binding {
+                        target: display
+                        property: "name"
+                        value: tedit.text
+                        when: !display.persistent
                     }
                 }
             }
@@ -86,6 +83,12 @@ Column {
                 var t = row.children[tIndex];
                 t.cursorPosition = prevPos;
                 t.forceActiveFocus();
+            }
+
+            function makeVolatile() {
+                display.persistent = false;
+                tnum.forceActiveFocus();
+                tnum.selectAll();
             }
 
             function processKeyEvent(event, tIndex, prevPos) {
@@ -100,7 +103,7 @@ Column {
                     break;
                 case Qt.Key_Return:
                     rep.model.insertRows(index +1, 1);
-                    rep.itemAt(index +1).takeFocus(0, 0);
+                    rep.itemAt(index +1).makeVolatile();
                     event.accepted = true;
                     break;
                 }

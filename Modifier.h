@@ -11,27 +11,32 @@ class Modifier : public QObject
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(int bonus READ bonus WRITE setBonus NOTIFY bonusChanged)
     Q_PROPERTY(ModifierSource* source READ source WRITE setSource NOTIFY sourceChanged)
+    Q_PROPERTY(bool persistent READ persistent WRITE setPersistent NOTIFY persistentChanged)
 
 private:
-    QString m_name;
-    int m_bonus;
+    int 			m_bonus;
+    QString 		m_name;
+    bool 			m_persistent;
     ModifierSource* m_source;
 
 public:
     explicit Modifier(QObject *parent = 0);
 
-    QString name() const;
-    int bonus() const;
+    int 			bonus() const;
+    QString 		name() const;
+    bool 			persistent() const;
     ModifierSource* source() const;
 
 signals:
-    void nameChanged(QString arg);
     void bonusChanged(int arg);
+    void nameChanged(QString arg);
+    void persistentChanged(bool arg);
     void sourceChanged(ModifierSource* arg);
 
 public slots:
-    void setName(QString arg);
     void setBonus(int arg);
+    void setName(QString arg);
+    void setPersistent(bool arg);
     void setSource(ModifierSource* arg);
 };
 
