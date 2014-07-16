@@ -4,7 +4,7 @@ import QtQuick.Controls 1.1
 import org.lasath.turbo_batman 1.0
 
 Column {
-    id: modifiers_list
+    id: root
 
     property alias model: rep.model
 
@@ -15,14 +15,34 @@ Column {
 
         delegate: Item {
             height: childrenRect.height
-            width: modifiers_list.width
+            width: root.width
 
             Rectangle {
                 id: bg
-                color: "#F1F1F1"
                 anchors.fill: parent
-                border.color: "#a4a4a4"
-                visible: tedit.activeFocus || tnum.activeFocus
+
+                color: "#00000000"
+                border.color: "#00000000"
+
+                states: [
+                    State {
+                        name: "active"
+                        extend: "hovered"
+                        when: tedit.activeFocus || tnum.activeFocus
+                        PropertyChanges {
+                            target: bg
+                            border.color: "#a4a4a4"
+                        }
+                    },
+                    State {
+                        name: "hovered"
+                        when: bg_area.containsMouse
+                        PropertyChanges {
+                            target: bg
+                            color: "#F1F1F1"
+                        }
+                    }
+                ]
             }
 
             Row {
@@ -77,6 +97,13 @@ Column {
                         when: !display.persistent
                     }
                 }
+            }
+
+            MouseArea {
+                id: bg_area
+                anchors.fill: parent
+                hoverEnabled: true
+                acceptedButtons: Qt.NoButton
             }
 
             function takeFocus(tIndex, prevPos) {
