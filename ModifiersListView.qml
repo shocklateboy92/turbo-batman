@@ -89,6 +89,8 @@ Column {
                     verticalAlignment: TextEdit.AlignVCenter
                     wrapMode: TextEdit.Wrap
 
+                    // FIXME: do cursor manually, to mimic GMail's
+                    selectByMouse: true
                     Keys.enabled: true
                     Keys.onPressed: processKeyEvent(event,
                                                     Positioner.index,
@@ -108,6 +110,7 @@ Column {
                 anchors.fill: parent
                 hoverEnabled: true
                 acceptedButtons: Qt.NoButton
+                cursorShape: "IBeamCursor"
             }
 
             function takeFocus(tIndex, prevPos) {
