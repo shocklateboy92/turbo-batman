@@ -9,7 +9,10 @@ Column {
 
     property alias model: rep.model
 
-    anchors.fill: parent
+    anchors {
+        left: parent.left
+        right: parent.right
+    }
 
     Repeater {
         id: rep
@@ -84,7 +87,7 @@ Column {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
-                    text: display.name
+                    text: display.phantom ? "" : display.name
                     renderType: TextEdit.NativeRendering
                     verticalAlignment: TextEdit.AlignVCenter
                     wrapMode: TextEdit.Wrap

@@ -26,43 +26,44 @@ ApplicationWindow {
         }
     }
 
+
     SplitView {
+        orientation: Qt.Horizontal
         anchors.fill: parent
-        orientation: Qt.Vertical
 
-        SplitView {
-            orientation: Qt.Horizontal
-            Layout.fillHeight: true
-
-            Item {
-                Rectangle {
-                    color: "white"
-                    radius: 3
-                    anchors.fill: parent
-                    anchors.margins: 10
-                }
-
-                Layout.fillWidth: true
-                ScrollView {
-                    anchors.fill: parent
-                    anchors.margins: 20
-                    contentItem: Item {
-                        MainSheet {
-                            id: ci
-                            transform: Scale {
-                                id: cis
-                                xScale: 1
-                                yScale: xScale
-                            }
-                        }
-                        width: ci.width * cis.xScale
-                        height: ci.height * cis.yScale
-                    }
-                }
+        Item {
+            Rectangle {
+                color: "white"
+                radius: 3
+                anchors.fill: parent
+                anchors.margins: 10
             }
 
+            Layout.fillWidth: true
+            ScrollView {
+                anchors.fill: parent
+                anchors.margins: 20
+                contentItem: Item {
+                    MainSheet {
+                        id: ci
+                        transform: Scale {
+                            id: cis
+                            xScale: 1
+                            yScale: xScale
+                        }
+                    }
+                    width: ci.width * cis.xScale
+                    height: ci.height * cis.yScale
+                }
+            }
+        }
+
+        SplitView {
+            orientation: Qt.Vertical
+            width: parent.width * 0.4
+
             Item {
-                width: parent.width * 0.4
+                height: parent.height * 0.4
                 GroupBox {
                     anchors.fill: parent
                     anchors.margins: 10
@@ -83,17 +84,25 @@ ApplicationWindow {
                     }
                 }
             }
-        }
 
-        Item {
-            height: 400
-            GroupBox {
-                title: "Modifiers"
-                anchors.margins: 10
-                anchors.fill: parent
+            Item {
+                width: parent.width
 
-                ModifiersListView {
-                    id: modifiers_list
+                GroupBox {
+                    title: "Modifiers"
+                    anchors.margins: 10
+                    anchors.fill: parent
+
+                    Flickable {
+                        anchors.fill: parent
+                        contentWidth: width
+                        contentHeight: modifiers_list.height
+                        clip: true
+
+                        ModifiersListView {
+                            id: modifiers_list
+                        }
+                    }
                 }
             }
         }
