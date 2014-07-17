@@ -98,7 +98,7 @@ void Attribute::clearData()
 
 bool Attribute::insertRows(int row, int count, const QModelIndex &parent)
 {
-    beginInsertRows(parent, row, row + count);
+    beginInsertRows(parent, row, row + count -1);
 
     ModifierType *mod = new ModifierType();
     connect(mod, &Modifier::bonusChanged,
