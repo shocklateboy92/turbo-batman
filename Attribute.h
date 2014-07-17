@@ -29,6 +29,13 @@ public:
     ModifierList modifiers() const;
     ModifierType* modifierAt(int index) const;
 
+public slots:
+    void addModifier(Modifier *mod);
+    void clearData();
+
+    bool insertRows(int row, int count,
+                    const QModelIndex &parent = QModelIndex()) override;
+
 signals:
     void valueChanged(QVariant arg);
     void modifiersChanged(ModifierList modifiers);
@@ -36,13 +43,12 @@ signals:
 private:
     ModifierList m_modifiers;
     ModifierDataList m_data;
+    ModifierType *m_phantom;
 
-public slots:
-    void addModifier(Modifier *mod);
-    void clearData();
+    void createPhantom();
 
-    bool insertRows(int row, int count,
-                    const QModelIndex &parent = QModelIndex()) override;
+private slots:
+    void promotePhantom();
 };
 
 #endif // ATTRIBUTE_H

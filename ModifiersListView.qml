@@ -54,7 +54,7 @@ Column {
                     width: sizes.mWidth(6)
 
 //                    readOnly: display.persistent
-                    text: display.bonus
+                    text: display.phantom ? "" : display.bonus
                     font.pointSize: 18
                     renderType: TextEdit.NativeRendering
                     horizontalAlignment: TextEdit.AlignRight
@@ -129,8 +129,10 @@ Column {
                     nextItem = rep.itemAt(index +1);
                     break;
                 case Qt.Key_Return:
-                    rep.model.insertRows(index +1, 1);
-                    rep.itemAt(index +1).makeVolatile();
+                    if (!display.phantom) {
+                        rep.model.insertRows(index +1, 1);
+                        rep.itemAt(index +1).makeVolatile();
+                    }
                     event.accepted = true;
                     break;
                 }

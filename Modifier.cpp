@@ -2,7 +2,8 @@
 #include <QDebug>
 
 Modifier::Modifier(QObject *parent) :
-    QObject(parent), m_bonus(0), m_persistent(true), m_source(nullptr)
+    QObject(parent), m_bonus(0), m_persistent(true),
+    m_phantom(false), m_source(nullptr)
 {
 }
 
@@ -28,6 +29,11 @@ ModifierSource *Modifier::source() const
 bool Modifier::persistent() const
 {
     return m_persistent;
+}
+
+bool Modifier::phantom() const
+{
+    return m_phantom;
 }
 
 void Modifier::setName(QString arg)
@@ -70,5 +76,13 @@ void Modifier::setPersistent(bool arg)
     if (m_persistent != arg) {
         m_persistent = arg;
         emit persistentChanged(arg);
+    }
+}
+
+void Modifier::setPhantom(bool arg)
+{
+    if (m_phantom != arg) {
+        m_phantom = arg;
+        emit phantomChanged(arg);
     }
 }

@@ -26,13 +26,13 @@ static int count(QQmlListProperty<Modifier> *property) {
 Attribute::Attribute(QObject *parent) :
     QAbstractListModel(parent), m_modifiers(this, this, &append, &count, &at, &clear)
 {
+    createPhantom();
 }
-
 
 int Attribute::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_data.length();
+    return m_data.length() + 1; // including the phatom
 }
 
 QVariant Attribute::data(const QModelIndex &index, int role) const
@@ -42,7 +42,11 @@ QVariant Attribute::data(const QModelIndex &index, int role) const
     if (index.isValid()) {
         switch (role) {
         case Qt::DisplayRole:
-            var = QVariant::fromValue(m_data[index.row()]);
+            if (index.row() < m_data.length()) {
+                var = QVariant::fromValue(m_data[index.row()]);
+            } else {
+                var = QVariant::fromValue(m_phantom);
+            }
             break;
         default:
             break;
@@ -105,4 +109,39 @@ bool Attribute::insertRows(int row, int count, const QModelIndex &parent)
     endInsertRows();
 
     return true;
+}
+
+void Attribute::createPhantom()
+{
+    m_phantom = new Modifier();
+    m_phantom->setParent(this); // in case we get deleted before it's used
+    m_phantom->setPersistent(false);
+    m_phantom->setPhantom(true);
+
+    connect(m_phantom, &Modifier::bonusChanged,
+            this, &Attribute::promotePhantom);
+    connect(m_phantom, &Modifier::nameChanged,
+            this, &Attribute::promotePhantom);
+}
+
+void Attribute::promotePhantom()
+{
+    ModifierType* phantom = qobject_cast<ModifierType*>(QObject::sender());
+
+    Q_ASSERT(phantom->phantom());
+    Q_ASSERT(phantom == m_phantom);
+
+    phantom->setParent(nullptr);
+    phantom->setPhantom(false);
+
+    disconnect(phantom, &Modifier::bonusChanged,
+               this, &Attribute::promotePhantom);
+    disconnect(phantom, &Modifier::nameChanged,
+               this, &Attribute::promotePhantom);
+
+    int count = rowCount(QModelIndex());
+    beginInsertRows(QModelIndex(), count, count);
+    addModifier(phantom);
+    createPhantom();
+    endInsertRows();
 }
