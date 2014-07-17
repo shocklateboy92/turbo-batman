@@ -1,5 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
+import QtQuick.Layouts 1.1
 
 import org.lasath.turbo_batman 1.0
 
@@ -14,7 +15,7 @@ Column {
         id: rep
 
         delegate: Item {
-            height: childrenRect.height
+            height: Math.max(tnum.height, tedit.paintedHeight)
             width: root.width
 
             Rectangle {
@@ -45,13 +46,14 @@ Column {
                 ]
             }
 
-            Row {
+            RowLayout {
                 id: row
+                anchors.fill: parent
                 spacing: sizes.mWidth(2)
 
                 TextInput {
                     id: tnum
-                    width: sizes.mWidth(6)
+                    Layout.preferredWidth: sizes.mWidth(6)
 
 //                    readOnly: display.persistent
                     text: display.phantom ? "" : display.bonus
@@ -79,11 +81,13 @@ Column {
 
                 TextEdit {
                     id: tedit
-                    height: Math.max(parent.height, paintedHeight)
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
 
                     text: display.name
                     renderType: TextEdit.NativeRendering
                     verticalAlignment: TextEdit.AlignVCenter
+                    wrapMode: TextEdit.Wrap
 
                     Keys.enabled: true
                     Keys.onPressed: processKeyEvent(event,
