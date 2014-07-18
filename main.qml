@@ -372,8 +372,35 @@ TurboBatman {
     Attribute {
         id: hit_points
         Bonus {
-            bonus: 125
-            name: "Stuff"
+            bonus: 6
+            name: "Health Roll, Level 1 (6)"
+        }
+        Bonus {
+            bonus: 12 * 5
+            name: "Health Rolls, Level 2-13 (5)"
+        }
+        Bonus {
+            bonus: 2
+            name: "Health Roll, Level 14 (2)"
+        }
+
+        Bonus {
+            bonus: 1
+            name: "Favoured Class, Level 14"
+        }
+
+        Bonus {
+            bonus: constitution.mod * level.value
+            name: "Constitution Modifier"
+        }
+    }
+
+    Attribute {
+        id: current_hit_points
+
+        Bonus {
+            bonus: hit_points.value
+            name: "Starting Hit Points (Full)"
         }
     }
 

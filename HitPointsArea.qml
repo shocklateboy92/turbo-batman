@@ -43,6 +43,10 @@ Area {
             ValueBox {
                 height: sizes.mHeight(4)
                 width: parent.width
+
+                target: current_hit_points
+                overrideText: (current_hit_points.value - hit_points.value)
+                              + "/" + current_hit_points.value
             }
         }
 
