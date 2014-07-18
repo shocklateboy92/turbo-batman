@@ -1,9 +1,9 @@
-import QtQuick 2.0
-
 import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.1
+import QtQuick.Dialogs 1.2
+import QtQuick.Window 2.0
 
 import org.lasath.turbo_batman 1.0
 
@@ -21,7 +21,7 @@ ApplicationWindow {
             title: qsTr("File")
             MenuItem {
                 text: qsTr("Exit")
-                onTriggered: Qt.quit();
+                onTriggered: quitDialog.open();
             }
         }
     }
@@ -106,5 +106,22 @@ ApplicationWindow {
                 }
             }
         }
+    }
+
+    MessageDialog {
+        id: quitDialog
+
+        icon: StandardIcon.Information
+        standardButtons: StandardButton.Yes | StandardButton.Cancel
+
+        title: "Confirm Quit"
+        text: "Are you sure you want to exit?\nIf you exit now, all newly created modifiers will be lost."
+
+        onYes: Qt.quit();
+    }
+
+    onClosing: {
+        close.accepted = false;
+        quitDialog.open();
     }
 }
