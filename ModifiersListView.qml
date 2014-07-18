@@ -66,7 +66,8 @@ Column {
 
                     Keys.enabled: true
                     Keys.onPressed: processKeyEvent(event,
-                                                    Positioner.index,
+                                                    0,
+                                                    // FIXME: don't hardcode column
                                                     cursorPosition)
                     inputMethodHints: Qt.ImhFormattedNumbersOnly
                     validator: IntValidator {}
@@ -96,7 +97,7 @@ Column {
                     selectByMouse: true
                     Keys.enabled: true
                     Keys.onPressed: processKeyEvent(event,
-                                                    Positioner.index,
+                                                    1,
                                                     cursorPosition)
 
                     Binding {
