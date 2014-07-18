@@ -92,6 +92,8 @@ Area {
 
             LabeledValueBox {
                 text: "Dex Modifier"
+                target: initiative
+                overrideText: dexterity.mod
             }
 
             GapText {
@@ -100,6 +102,8 @@ Area {
 
             LabeledValueBox {
                 text: "Misc Modifier"
+                target: initiative
+                overrideText: initiative.value - dexterity.mod
             }
         }
     }

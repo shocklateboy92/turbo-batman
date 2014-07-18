@@ -365,7 +365,7 @@ TurboBatman {
         }
         Bonus {
             bonus: 4
-            name: "Improved Initiative"
+            name: "Witch's Familiar (Scropion)"
         }
     }
 

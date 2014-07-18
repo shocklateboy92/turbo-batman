@@ -3,6 +3,8 @@ import QtQuick 2.0
 Column {
     property alias target: vbox.target
     property alias text: label.text
+    property alias overrideText: vbox.overrideText
+
     spacing: sizes.mHeight(0.2)
 
     ValueBox {
