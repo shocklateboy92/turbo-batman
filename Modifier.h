@@ -18,9 +18,9 @@ private:
     int 			m_bonus;
     QString 		m_name;
     bool 			m_persistent;
+    bool            m_phantom;
     ModifierSource* m_source;
 
-    bool m_phantom;
 
 public:
     explicit Modifier(QObject *parent = 0);
