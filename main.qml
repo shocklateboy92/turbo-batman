@@ -441,17 +441,29 @@ TurboBatman {
     Save {
         id: fortitude
         ability: constitution
+        Bonus {
+            bonus: 5
+            name: "Cloak of Resistance"
+        }
     }
 
     Save {
         id: reflex
         ability: dexterity
+        Bonus {
+            bonus: 5
+            name: "Cloak of Resistance"
+        }
     }
 
     Save {
         id: will
         ability: wisdom
         primary: true
+        Bonus {
+            bonus: 5
+            name: "Cloak of Resistance"
+        }
     }
 
     Attribute {
