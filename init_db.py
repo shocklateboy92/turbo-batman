@@ -14,7 +14,8 @@ DB_NAME = 'spells.db'
 TABLE_NAME = 'spells'
 
 FIELD_TYPES = {
-    'id': 'int primary_key'
+    'id': 'INTEGER PRIMARY KEY',
+    'witch': 'INTEGER'
 }
 
 with open(input_file) as ifile:
@@ -32,13 +33,14 @@ with open(input_file) as ifile:
         # Drop any existing stale/failed copy
         cur.execute("DROP TABLE {0};".format(TABLE_NAME))
 
+        # Check to make sure that all FIELD_TYPES exist
+        assert set(FIELD_TYPES.keys()).issubset(set(headers))
+
         # Give default types for unspecified headers
-        for field in headers:
-            if not field in FIELD_TYPES:
-                FIELD_TYPES[field] = 'TEXT'
+        fields_list = [(f, FIELD_TYPES[f] if f in FIELD_TYPES else 'TEXT') for f in headers]
 
         # Create the table with the headers as columns
-        data_list = [" ".join(f) for f in FIELD_TYPES.items()]
+        data_list = [" ".join(f) for f in fields_list]
         table_cmd = "CREATE TABLE {name} ({data});".format(
             name=TABLE_NAME, data=",\n".join(data_list))
         print(table_cmd)
