@@ -23,3 +23,6 @@ HEADERS += \
     Modifier.h \
     Sizes.h \
     ModifierSource.h
+
+OTHER_FILES += \
+    init_db.py
