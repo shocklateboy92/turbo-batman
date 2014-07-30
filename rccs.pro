@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets sql
 CONFIG += c++11
 CONFIG+=qml_debug
 
@@ -8,7 +8,8 @@ SOURCES += main.cpp \
     Attribute.cpp \
     Modifier.cpp \
     Sizes.cpp \
-    ModifierSource.cpp
+    ModifierSource.cpp \
+    Spell.cpp
 
 RESOURCES += qml.qrc
 
@@ -22,7 +23,8 @@ HEADERS += \
     Attribute.h \
     Modifier.h \
     Sizes.h \
-    ModifierSource.h
+    ModifierSource.h \
+    Spell.h
 
 OTHER_FILES += \
     init_db.py
