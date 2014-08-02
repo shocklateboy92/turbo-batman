@@ -3,6 +3,7 @@
 #include "ModifierSource.h"
 #include "Sizes.h"
 #include "Spell.h"
+#include "SpellsModel.h"
 
 #include <QApplication>
 #include <QQmlApplicationEngine>
@@ -23,9 +24,13 @@ int main(int argc, char *argv[])
     db.setDatabaseName("spells.db");
     Q_ASSERT(db.open());
 
+    SpellsModel spells_model;
+    qDebug() << spells_model.roleNames();
+
     QQmlApplicationEngine engine;
     Sizes sizes;
     engine.rootContext()->setContextProperty("sizes", &sizes);
+    engine.rootContext()->setContextProperty("all_spells", &spells_model);
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
     return app.exec();

@@ -29,5 +29,6 @@
         <file>Bonus.qml</file>
         <file>Save.qml</file>
         <file>ModifiersListView.qml</file>
+        <file>SpellsPane.qml</file>
     </qresource>
 </RCC>
