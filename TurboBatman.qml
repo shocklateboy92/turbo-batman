@@ -32,28 +32,31 @@ ApplicationWindow {
         anchors.fill: parent
 
         Item {
-            Rectangle {
-                color: "white"
-                radius: 3
-                anchors.fill: parent
-                anchors.margins: 10
-            }
-
             Layout.fillWidth: true
-            ScrollView {
+            TabView {
                 anchors.fill: parent
-                anchors.margins: 20
-                contentItem: Item {
-                    MainSheet {
-                        id: ci
-                        transform: Scale {
-                            id: cis
-                            xScale: 1
-                            yScale: xScale
-                        }
+                anchors.margins: 5
+
+                Tab {
+                    title: "Spells"
+                    SpellsPane {
                     }
-                    width: ci.width * cis.xScale
-                    height: ci.height * cis.yScale
+                }
+
+                Tab {
+                    title: "Main Sheet"
+                    Item {
+                        Rectangle {
+                            anchors.fill: parent
+                            anchors.margins: 10
+
+                            MainSheet {
+                                anchors.fill: parent
+                                anchors.margins: 10
+                            }
+                        }
+
+                    }
                 }
             }
         }
