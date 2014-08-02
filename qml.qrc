@@ -30,5 +30,6 @@
         <file>Save.qml</file>
         <file>ModifiersListView.qml</file>
         <file>SpellsPane.qml</file>
+        <file>SpellDelegate.qml</file>
     </qresource>
 </RCC>
