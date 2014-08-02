@@ -40,7 +40,11 @@ ApplicationWindow {
                 Tab {
                     title: "Spells"
                     SpellsPane {
+                        anchors.fill: parent
                     }
+
+                    // I'm scared by this, but it works
+                    asynchronous: true
                 }
 
                 Tab {
