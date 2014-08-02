@@ -38,16 +38,6 @@ ApplicationWindow {
                 anchors.margins: 5
 
                 Tab {
-                    title: "Spells"
-                    SpellsPane {
-                        anchors.fill: parent
-                    }
-
-                    // I'm scared by this, but it works
-                    asynchronous: true
-                }
-
-                Tab {
                     title: "Main Sheet"
                     Item {
                         Rectangle {
@@ -61,6 +51,16 @@ ApplicationWindow {
                         }
 
                     }
+                }
+
+                Tab {
+                    title: "Spells"
+                    SpellsPane {
+                        anchors.fill: parent
+                    }
+
+                    // I'm scared by this, but it works
+                    asynchronous: true
                 }
             }
         }
