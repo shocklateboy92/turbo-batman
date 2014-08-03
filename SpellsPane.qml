@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.2
 
 Item {
     width: 800
@@ -14,17 +15,20 @@ Item {
         anchors.fill: parent
         anchors.margins: 10
 
-        ListView {
-            id: view
+        ScrollView {
             anchors.fill: parent
+            style: ScrollViewStyle { }
 
-            clip: true
-            model: all_spells
+            ListView {
+                id: view
 
-            delegate: SpellDelegate {
-                width: parent.width
+                clip: true
+                model: all_spells
+
+                delegate: SpellDelegate {
+                    width: parent.width
+                }
             }
-
         }
     }
 }
