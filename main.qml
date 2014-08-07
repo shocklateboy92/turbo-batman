@@ -387,6 +387,10 @@ TurboBatman {
             bonus: 2
             name: "Health Roll, Level 14 (2)"
         }
+        Bonus {
+            bonus: 6
+            name: "Health Roll, Level 15 (6)"
+        }
 
         Bonus {
             bonus: 1
@@ -482,7 +486,7 @@ TurboBatman {
         id: level
 
         Bonus {
-            bonus: 14
+            bonus: 15
             name: "Witch"
         }
     }
