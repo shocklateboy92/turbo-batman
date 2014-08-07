@@ -153,6 +153,10 @@ TurboBatman {
             id: wand_mage_armor
             name: "Wand of Mage Armour"
         }
+        Condition {
+            id: robe_runes
+            name: "Robe of Runes"
+        }
     }
 
     AttributeList {
