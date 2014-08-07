@@ -31,5 +31,6 @@
         <file>ModifiersListView.qml</file>
         <file>SpellsPane.qml</file>
         <file>SpellDelegate.qml</file>
+        <file>SpellsArea.qml</file>
     </qresource>
 </RCC>

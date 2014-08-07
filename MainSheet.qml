@@ -3,61 +3,66 @@ import QtQuick.Layouts 1.1
 
 Item {
     anchors.centerIn: parent
-    Row {
-        spacing: sizes.mWidth(2)
-        Column {
-            Item {
-                width: parent.width
-                height: hitPointsArea.height
+    Column {
+        Row {
+            spacing: sizes.mWidth(2)
+            Column {
+                Item {
+                    width: parent.width
+                    height: hitPointsArea.height
 
-                AbilityScoresArea {
-                    id: abilityScores
-                    anchors {
-                        left: parent.left
-                        top: parent.top
+                    AbilityScoresArea {
+                        id: abilityScores
+                        anchors {
+                            left: parent.left
+                            top: parent.top
+                        }
+                    }
+
+                    HitPointsArea {
+                        id: hitPointsArea
+                        anchors {
+                            right: parent.right
+                            top: parent.top
+                        }
                     }
                 }
 
-                HitPointsArea {
-                    id: hitPointsArea
-                    anchors {
-                        right: parent.right
-                        top: parent.top
-                    }
+                ArmourClassArea {
+                }
+
+                SecondaryACArea {
+                }
+
+                SavesArea {
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: sizes.mHeight(1)
+                }
+
+                BabArea {
+                }
+
+                Spacer {
+                    height: sizes.mHeight(1)
+                }
+
+                CombatManeuversArea {
                 }
             }
 
-            ArmourClassArea {
-            }
+            Column {
+                MovementsArea {
+                }
 
-            SecondaryACArea {
-            }
-
-            SavesArea {
-            }
-
-            Rectangle {
-                width: parent.width
-                height: sizes.mHeight(1)
-            }
-
-            BabArea {
-            }
-
-            Spacer {
-                height: sizes.mHeight(1)
-            }
-
-            CombatManeuversArea {
+                SkillsArea {
+                }
             }
         }
 
-        Column {
-            MovementsArea {
-            }
-
-            SkillsArea {
-            }
+        SpellsArea {
         }
     }
 }
