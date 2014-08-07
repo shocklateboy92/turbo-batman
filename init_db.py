@@ -31,7 +31,7 @@ with open(input_file) as ifile:
         cur.execute("PRAGMA foreign_keys = ON;")
 
         # Drop any existing stale/failed copy
-        cur.execute("DROP TABLE {0};".format(TABLE_NAME))
+        cur.execute("DROP TABLE IF EXISTS {0};".format(TABLE_NAME))
 
         # Check to make sure that all FIELD_TYPES exist
         assert set(FIELD_TYPES.keys()).issubset(set(headers))
