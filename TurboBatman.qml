@@ -34,6 +34,7 @@ ApplicationWindow {
         Item {
             Layout.fillWidth: true
             TabView {
+                id: tabview_main
                 anchors.fill: parent
                 anchors.margins: 5
 
@@ -55,12 +56,21 @@ ApplicationWindow {
 
                 Tab {
                     title: "Spells"
-                    SpellsPane {
-                        anchors.fill: parent
-                    }
+                    source: "SpellsPane.qml"
 
                     // I'm scared by this, but it works
                     asynchronous: true
+                }
+            }
+
+            Instantiator {
+                model: tabview_main.count
+                delegate: Action {
+                    shortcut: "Alt+" + (index + 1)
+                    onTriggered: {
+                        tabview_main.currentIndex = index;
+                        tabview_main.getTab(index).forceActiveFocus();
+                    }
                 }
             }
         }
