@@ -90,8 +90,18 @@ ApplicationWindow {
                         delegate: CheckBox {
                             text: modelData.name
 
-                            onClicked: {
-                                modelData.active = !modelData.active;
+                            checked: action.checked
+                            Binding {
+                                target: modelData
+                                property: "active"
+                                value: action.checked
+                            }
+
+                            onClicked: action.trigger(event.source)
+                            Action {
+                                id: action
+                                shortcut: modelData.shortcut
+                                checkable: true
                             }
                         }
 
