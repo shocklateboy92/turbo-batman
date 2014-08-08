@@ -38,7 +38,10 @@ ApplicationWindow {
                 anchors.fill: parent
                 anchors.margins: 5
 
+                focus: true
+
                 Tab {
+                    focus: true
                     title: "Main Sheet"
                     Item {
                         Rectangle {
@@ -55,6 +58,7 @@ ApplicationWindow {
                 }
 
                 Tab {
+                    focus: true
                     title: "Spells"
                     source: "SpellsPane.qml"
 
