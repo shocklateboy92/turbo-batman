@@ -11,7 +11,8 @@ SOURCES += main.cpp \
     ModifierSource.cpp \
     Spell.cpp \
     SpellsModel.cpp \
-    ProjectContext.cpp
+    ProjectContext.cpp \
+    FilterProxyModel.cpp
 
 RESOURCES += qml.qrc
 
@@ -28,7 +29,8 @@ HEADERS += \
     ModifierSource.h \
     Spell.h \
     SpellsModel.h \
-    ProjectContext.h
+    ProjectContext.h \
+    FilterProxyModel.h
 
 OTHER_FILES += \
     init_db.py
