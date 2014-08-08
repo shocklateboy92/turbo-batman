@@ -1,6 +1,7 @@
 #include "Attribute.h"
 #include "Modifier.h"
 #include "ModifierSource.h"
+#include "ProjectContext.h"
 #include "Sizes.h"
 #include "Spell.h"
 #include "SpellsModel.h"
@@ -19,18 +20,18 @@ int main(int argc, char *argv[])
     qmlRegisterType<Modifier>("org.lasath.turbo_batman", 1, 0, "Modifier");
     qmlRegisterType<ModifierSource>("org.lasath.turbo_batman", 1, 0, "ModifierSource");
     qmlRegisterType<Spell>("org.lasath.turbo_batman", 1, 0, "Spell");
+    qmlRegisterType<SpellsModel>("org.lasath.turbo_batman", 1, 0, "SpellsModel");
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("spells.db");
     Q_ASSERT(db.open());
 
-    SpellsModel spells_model;
-    qDebug() << spells_model.roleNames();
+    ProjectContext turbo_batman;
+    Sizes sizes;
 
     QQmlApplicationEngine engine;
-    Sizes sizes;
     engine.rootContext()->setContextProperty("sizes", &sizes);
-    engine.rootContext()->setContextProperty("all_spells", &spells_model);
+    engine.rootContext()->setContextProperty("turbo_batman", &turbo_batman);
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
     return app.exec();

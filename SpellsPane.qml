@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
+import org.lasath.turbo_batman 1.0
 
 Item {
     width: 800
@@ -23,7 +24,7 @@ Item {
                 id: view
 
                 clip: true
-                model: all_spells
+                model: turbo_batman.spells_db
 
                 delegate: SpellDelegate {
                     width: parent.width

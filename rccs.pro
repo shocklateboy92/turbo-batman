@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     Sizes.cpp \
     ModifierSource.cpp \
     Spell.cpp \
-    SpellsModel.cpp
+    SpellsModel.cpp \
+    ProjectContext.cpp
 
 RESOURCES += qml.qrc
 
@@ -26,7 +27,8 @@ HEADERS += \
     Sizes.h \
     ModifierSource.h \
     Spell.h \
-    SpellsModel.h
+    SpellsModel.h \
+    ProjectContext.h
 
 OTHER_FILES += \
     init_db.py
