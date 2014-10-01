@@ -18,7 +18,7 @@ var prep_spells = {
     "Break Enchantment": 1,
     "Teleport": 1,
     "Ill Omen": {
-        "prep": 1,
+        "prep": 4,
         "quickened": true,
     },
 
