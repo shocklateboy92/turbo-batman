@@ -35,9 +35,9 @@ SpellsModel::SpellsModel(QObject *parent) :
     // stick all the data in a giant list, for direct access
     while (m_query.next()) {
         QList<QVariant> l;
-        l.reserve(m_cols + 2);
+        l.reserve(m_cols);
 
-        for (int i = 0; i < m_cols; i++) {
+        for (int i = 0; i < m_cols - 2; i++) {
             l.append(m_query.value(i));
         }
 
