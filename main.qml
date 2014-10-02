@@ -4,6 +4,27 @@ import org.lasath.turbo_batman 1.0
 
 TurboBatman {
 
+    // Items
+    // Greater Quicken Metamagic Rod
+    // Wand of Knock
+    // Earrings of Telpathic Bonds
+
+
+    // Spells
+    // 8th
+    //  1x Maze
+    //  1x Destruction
+    //  1x Quickend Power Word Stun
+    // 7th
+    //  1x Quickened Silence
+    // 6th
+    //  3x Greater Dispel Magic
+    //  2x True Seeing
+    // 5th
+    //  1x Quickend Dimention Door
+    //  1x Break Enchantment
+    //  4x Dimention Door
+
     AttributeList {
         id: abilityScore_list
 
