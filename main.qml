@@ -262,7 +262,7 @@ TurboBatman {
             name: "Knowledge (Arcana)"
             ability: intelligence
             class_skill: true
-            ranks: 14
+            ranks: level.value
         }
         Skill {
             name: "Knowledge (Dungeoneering)"
@@ -286,7 +286,7 @@ TurboBatman {
             name: "Knowledge (History)"
             ability: intelligence
             class_skill: true
-            ranks: 14
+            ranks: level.value
 
             Bonus {
                 bonus: 2
@@ -297,7 +297,7 @@ TurboBatman {
             name: "Knowledge (Local)"
             ability: intelligence
             class_skill: true
-            ranks: 14
+            ranks: level.value
 
             Bonus {
                 bonus: 2
@@ -326,7 +326,7 @@ TurboBatman {
             name: "Knowledge (Religion)"
             ability: intelligence
             class_skill: true
-            ranks: 14
+            ranks: level.value
         }
         Skill {
             name: "Linguistics"
@@ -338,7 +338,7 @@ TurboBatman {
             name: "Perception"
             ability: wisdom
             class_skill: true
-            ranks: 14
+            ranks: level.value
         }
         Skill {
             name: "Perform"
@@ -371,7 +371,7 @@ TurboBatman {
             name: "Spellcraft"
             ability: intelligence
             class_skill: true
-            ranks: 14
+            ranks: level.value
         }
         Skill {
             name: "Stealth"
@@ -463,10 +463,6 @@ TurboBatman {
         Bonus {
             bonus: 4
             source: ring_shield
-        }
-        Bonus {
-            bonus: 4
-            source: wand_mage_armor
         }
 
         Bonus {
