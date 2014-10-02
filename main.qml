@@ -68,6 +68,10 @@ TurboBatman {
                 bonus: tfa_young.active ? 2 : tfa_mid.active ? -2 : tfa_old.active ? -2 : 0
                 name: "Threefold Aspect"
             }
+            Bonus {
+                bonus: 6
+                name: "Belt of Physical Might (+6)"
+            }
         }
 
         AbilityScore {
@@ -86,6 +90,10 @@ TurboBatman {
             Bonus {
                 bonus: tfa_young.active ? 2 : 0
                 name: "Threefold Aspect"
+            }
+            Bonus {
+                bonus: 6
+                name: "Belt of Physical Might (+6)"
             }
         }
 
@@ -121,6 +129,10 @@ TurboBatman {
             Bonus {
                 bonus: 1
                 name: "Level 12 Stat Increase"
+            }
+            Bonus {
+                bonus: 1
+                name: "Level 16 Stat Increase"
             }
         }
 
@@ -417,6 +429,14 @@ TurboBatman {
             bonus: 1
             name: "Favoured Class, Level 14"
         }
+        Bonus {
+            bonus: 3
+            name: "Health Roll, Level 16 (3)"
+        }
+        Bonus {
+            bonus: 1
+            name: "Favoured Class, Level 16"
+        }
 
         Bonus {
             bonus: constitution.mod * level.value
@@ -465,6 +485,10 @@ TurboBatman {
             bonus: 1
             name: "Ring of Protection"
         }
+        Bonus {
+            bonus: 5
+            name: "Braces of Armour +5"
+        }
     }
 
     Save {
@@ -507,7 +531,7 @@ TurboBatman {
         id: level
 
         Bonus {
-            bonus: 15
+            bonus: 16
             name: "Witch"
         }
     }
