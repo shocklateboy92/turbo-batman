@@ -9,7 +9,6 @@ import org.lasath.turbo_batman 1.0
 
 ApplicationWindow {
     id: batman
-    property alias currentAttribute: modifiers_list.model
 
     visible: true
     width: 640
@@ -27,12 +26,9 @@ ApplicationWindow {
     }
 
 
-    SplitView {
-        orientation: Qt.Horizontal
-        anchors.fill: parent
 
         Item {
-            Layout.fillWidth: true
+            anchors.fill: parent
             TabView {
                 id: tabview_main
                 anchors.fill: parent
@@ -40,22 +36,6 @@ ApplicationWindow {
 
                 focus: true
 
-                Tab {
-                    focus: true
-                    title: "Main Sheet"
-                    Item {
-                        Rectangle {
-                            anchors.fill: parent
-                            anchors.margins: 10
-
-                            MainSheet {
-                                anchors.fill: parent
-                                anchors.margins: 10
-                            }
-                        }
-
-                    }
-                }
 
                 Tab {
                     focus: true
@@ -81,65 +61,7 @@ ApplicationWindow {
             }
         }
 
-        SplitView {
-            orientation: Qt.Vertical
-            width: parent.width * 0.4
 
-            Item {
-                height: parent.height * 0.4
-                GroupBox {
-                    anchors.fill: parent
-                    anchors.margins: 10
-                    title: "Conditions"
-
-                    ListView {
-                        delegate: CheckBox {
-                            text: modelData.name
-
-                            checked: action.checked
-                            Binding {
-                                target: modelData
-                                property: "active"
-                                value: action.checked
-                            }
-
-                            onClicked: action.trigger(event.source)
-                            Action {
-                                id: action
-                                shortcut: modelData.shortcut
-                                checkable: true
-                            }
-                        }
-
-                        anchors.fill: parent
-                        anchors.margins: 5
-                        model: conds.conditions
-                    }
-                }
-            }
-
-            Item {
-                width: parent.width
-
-                GroupBox {
-                    title: "Modifiers"
-                    anchors.margins: 10
-                    anchors.fill: parent
-
-                    Flickable {
-                        anchors.fill: parent
-                        contentWidth: width
-                        contentHeight: modifiers_list.height
-                        clip: true
-
-                        ModifiersListView {
-                            id: modifiers_list
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     MessageDialog {
         id: quitDialog
