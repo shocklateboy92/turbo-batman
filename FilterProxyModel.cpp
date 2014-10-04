@@ -18,6 +18,11 @@ QString FilterProxyModel::searchString() const
     return m_searchString;
 }
 
+int FilterProxyModel::wizardLevel() const
+{
+    return m_wizardLevel;
+}
+
 void FilterProxyModel::setSource(QObject *arg)
 {
     if (m_source != arg) {
@@ -26,7 +31,7 @@ void FilterProxyModel::setSource(QObject *arg)
 
         setSourceModel(m_source);
         if (m_source) {
-            auto role = m_source->roleNames().key("name");
+            auto role = m_source->roleNames().key("wiz");
             setFilterRole(role);
         }
     }
@@ -42,5 +47,15 @@ void FilterProxyModel::setSearchString(QString arg)
 
         qDebug() << arg;
         setFilterWildcard(arg);
+    }
+}
+
+void FilterProxyModel::setWizardLevel(int arg)
+{
+    if (m_wizardLevel != arg) {
+        m_wizardLevel = arg;
+        emit wizardLevelChanged(arg);
+
+        setFilterFixedString(QString::number(arg));
     }
 }
