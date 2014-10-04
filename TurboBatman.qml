@@ -65,6 +65,8 @@ ApplicationWindow {
                     // I'm scared by this, but it works
                     asynchronous: true
                 }
+
+                clip: true
             }
 
             Instantiator {

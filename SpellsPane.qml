@@ -38,6 +38,7 @@ Item {
 
     GroupBox {
         title: "All Spells"
+        id: groupbox
         anchors {
             top: filter_box.bottom
             left: parent.left
@@ -50,30 +51,23 @@ Item {
         ScrollView {
             anchors.fill: parent
             style: ScrollViewStyle { }
-
-            ListView {
-                id: view
-
-                clip: true
-                model: FilterProxyModel {
-                    source: turbo_batman.spells_db
-                    searchString: filter_field.text
-                }
-
-                delegate: SpellDelegate {
-                    id: del
-                    width: parent.width
-
-                    Binding {
-                        target: del
-                        property: "expanded"
-                        value: true
-                        when: view.count < 4
+            Flow {
+                width: groupbox.width
+                Repeater {
+                    id: view
+                    clip: true
+                    model: FilterProxyModel {
+                        source: turbo_batman.spells_db
+                        wizardLevel: 1
                     }
-                }
 
-                onCountChanged: {
-                    console.log(count);
+                    delegate: SpellDelegate {
+                        id: del
+                    }
+
+                    onCountChanged: {
+                        console.log(count);
+                    }
                 }
             }
         }
