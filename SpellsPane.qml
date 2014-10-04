@@ -12,8 +12,9 @@ Item {
         id: palette
     }
 
-    RowLayout {
-        id: filter_box
+
+    Item {
+        id: saveLoadBox
         anchors {
             top: parent.top
             left: parent.left
@@ -22,25 +23,37 @@ Item {
             rightMargin: anchors.leftMargin
         }
         height: sizes.mHeight(4)
+        Button {
+            id: save
+            text: "Save"
+            anchors.verticalCenter: parent.verticalCenter
+            onClicked: {
+                var spellsState = {};
+                spellsState.knownlist = [];
+                spellsState.preplist = [];
+                for ( var i = 0; i <view.count; i++){
+                    spellsState.knownlist[i] = view.itemAt(i).knownChecked
+                    spellsState.preplist[i] = view.itemAt(i).prepChecked
+                }
+                console.debug(JSON.stringify(spellsState))
+                turbo_batman.writeSpells(JSON.stringify(spellsState));
+            }
 
-        Label {
-            text: "Filter: "
+        }
+        Button {
+            id: load
+            text: "Load"
+            anchors.left: save.right
+            anchors.verticalCenter: parent.verticalCenter
         }
 
-        TextField {
-            id: filter_field
-            Layout.fillWidth: true
-            height: parent.height
-
-            focus: true
-        }
     }
 
     GroupBox {
         title: "All Spells"
         id: groupbox
         anchors {
-            top: filter_box.bottom
+            top: saveLoadBox.bottom
             left: parent.left
             right: parent.right
             bottom: parent.bottom

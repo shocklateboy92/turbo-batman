@@ -3,6 +3,8 @@ import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 
 Rectangle {
+    property alias knownChecked: checkboxKnown.checked
+    property alias prepChecked: checkboxPrep.checked
     height: sizes.mHeight(3);
     width: sizes.mWidth(30)
     border.color: "black"
