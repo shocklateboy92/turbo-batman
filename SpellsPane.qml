@@ -58,7 +58,7 @@ Item {
     }
 
     GroupBox {
-        title: "All Spells"
+        title: "1st Level Spells"
         id: groupbox
         anchors {
             top: saveLoadBox.bottom
@@ -79,7 +79,7 @@ Item {
                     clip: true
                     model: FilterProxyModel {
                         source: turbo_batman.spells_db
-                        wizardLevel: 1
+                        wizardLevel: modelData
                     }
 
                     delegate: SpellDelegate {

@@ -25,41 +25,40 @@ ApplicationWindow {
         }
     }
 
-
-
-        Item {
-            anchors.fill: parent
-            TabView {
-                id: tabview_main
-                anchors.fill: parent
-                anchors.margins: 5
-
-                focus: true
-
-
-                Tab {
+    Item {
+        anchors.fill: parent
+        TabView {
+            Repeater{
+                delegate: Tab {
                     focus: true
-                    title: "Spells"
+                    title: "Spells" + modelData
                     source: "SpellsPane.qml"
-
+//                    SpellsPane.spellLevel: modelData
                     // I'm scared by this, but it works
                     asynchronous: true
                 }
+                model: 10
 
-                clip: true
             }
 
-            Instantiator {
-                model: tabview_main.count
-                delegate: Action {
-                    shortcut: "Alt+" + (index + 1)
-                    onTriggered: {
-                        tabview_main.currentIndex = index;
-                        tabview_main.getTab(index).forceActiveFocus();
-                    }
+            id: tabview_main
+            anchors.fill: parent
+            anchors.margins: 5
+            focus: true
+            clip: true
+        }
+
+        Instantiator {
+            model: tabview_main.count
+            delegate: Action {
+                shortcut: "Alt+" + (index + 1)
+                onTriggered: {
+                    tabview_main.currentIndex = index;
+                    tabview_main.getTab(index).forceActiveFocus();
                 }
             }
         }
+    }
 
 
 
