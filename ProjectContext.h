@@ -17,6 +17,7 @@ public:
 
     QVariant spells_db() const;
     Q_INVOKABLE void writeSpells(const QString &str);
+    Q_INVOKABLE QString readSpells();
 
 signals:
     void spells_dbChanged(QVariant arg);

@@ -153,10 +153,6 @@ ApplicationWindow {
         onYes: Qt.quit();
     }
 
-
-Component.onCompleted: {
-    turbo_batman.writeSpells("eferfg");
-}
     onClosing: {
         close.accepted = false;
         quitDialog.open();

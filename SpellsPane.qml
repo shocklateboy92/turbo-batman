@@ -45,6 +45,14 @@ Item {
             text: "Load"
             anchors.left: save.right
             anchors.verticalCenter: parent.verticalCenter
+            onClicked: {
+                var spellsState = JSON.parse(turbo_batman.readSpells());
+
+                for ( var i = 0; i <view.count; i++){
+                    view.itemAt(i).knownChecked = spellsState.knownlist[i]
+                    view.itemAt(i).prepChecked = spellsState.preplist[i]
+                }
+            }
         }
 
     }

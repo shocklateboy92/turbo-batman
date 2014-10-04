@@ -19,3 +19,11 @@ void ProjectContext::writeSpells(const QString &str){
     file.close();
 
 }
+
+QString ProjectContext::readSpells()
+{
+ QFile file ("prepped_spells.json");
+ file.open (QIODevice::ReadOnly | QIODevice::Text);
+ Q_ASSERT (file.isOpen());
+ return QString(file.readAll());
+}
