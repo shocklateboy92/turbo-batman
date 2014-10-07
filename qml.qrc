@@ -34,5 +34,7 @@
         <file>SpellsPane.qml</file>
         <file>SpellDelegate.qml</file>
         <file>prep_spells.js</file>
+        <file>ui/allspells/SpellsTab.qml</file>
+        <file>ui/allspells/SpellDelegate.qml</file>
     </qresource>
 </RCC>

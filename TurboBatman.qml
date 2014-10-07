@@ -50,6 +50,12 @@ ApplicationWindow {
                 source: "CharacterSheet.qml"
             }
 
+            Tab {
+                title: "All Spells"
+                source: "ui/allspells/SpellsTab.qml"
+                asynchronous: true
+            }
+
             id: tabview_main
             anchors.fill: parent
             anchors.margins: 5
