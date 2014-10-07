@@ -3,7 +3,8 @@
 #include <QDebug>
 
 FilterProxyModel::FilterProxyModel(QObject *parent) :
-    QSortFilterProxyModel(parent)
+    QSortFilterProxyModel(parent), m_source(nullptr),
+    m_searchString(QString::null), m_wizardLevel(-1)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
 }
