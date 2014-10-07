@@ -12,7 +12,6 @@ Item {
         id: palette
     }
 
-
     Item {
         id: saveLoadBox
         anchors {

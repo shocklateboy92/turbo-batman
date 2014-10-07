@@ -43,7 +43,7 @@ Item {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            batman.currentAttribute = target;
+            main_sheet.currentAttribute = target;
         }
     }
 }

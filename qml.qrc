@@ -33,5 +33,6 @@
         <file>SpellDelegate.qml</file>
         <file>SpellsArea.qml</file>
         <file>prep_spells.js</file>
+        <file>CharacterSheet.qml</file>
     </qresource>
 </RCC>

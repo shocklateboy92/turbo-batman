@@ -28,17 +28,26 @@ ApplicationWindow {
     Item {
         anchors.fill: parent
         TabView {
-            Repeater{
-                delegate: Tab {
-                    focus: true
-                    title: "Spells" + modelData
-                    source: "SpellsPane.qml"
-//                    SpellsPane.spellLevel: modelData
-                    // I'm scared by this, but it works
-                    asynchronous: true
-                }
-                model: 10
+            Tab {
+                title: "Spontaneous Spells"
+                TabView {
+                    Repeater{
+                        delegate: Tab {
+                            title: "Spells" + modelData
+                            source: "SpellsPane.qml"
 
+                            // I'm scared by this, but it works
+                            asynchronous: true
+                        }
+                        model: 10
+
+                    }
+                }
+            }
+
+            Tab {
+                title: "Main Sheet"
+                source: "CharacterSheet.qml"
             }
 
             id: tabview_main
