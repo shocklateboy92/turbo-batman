@@ -1,38 +1,38 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainSheet.qml</file>
-        <file>DescriptionBox.qml</file>
-        <file>ValueBox.qml</file>
         <file>TurboBatman.qml</file>
         <file>Condition.qml</file>
         <file>ConditionList.qml</file>
         <file>AttributeList.qml</file>
         <file>Skill.qml</file>
-        <file>SkillsArea.qml</file>
         <file>AbilityScore.qml</file>
-        <file>SkillValueBox.qml</file>
-        <file>SkillsAreaTextColumn.qml</file>
-        <file>AbilityScoresArea.qml</file>
-        <file>HitPointsArea.qml</file>
-        <file>LabeledValueBox.qml</file>
-        <file>GapText.qml</file>
-        <file>ArmourClassArea.qml</file>
-        <file>Area.qml</file>
-        <file>SecondaryACArea.qml</file>
-        <file>SavesArea.qml</file>
-        <file>BabArea.qml</file>
-        <file>RoundedDescriptionBox.qml</file>
-        <file>CombatManeuversArea.qml</file>
-        <file>Spacer.qml</file>
-        <file>MovementsArea.qml</file>
+        <file alias="SkillsArea.qml">ui/mainsheet/SkillsArea.qml</file>
+        <file alias="MainSheet.qml">ui/mainsheet/MainSheet.qml</file>
+        <file alias="DescriptionBox.qml">ui/mainsheet/DescriptionBox.qml</file>
+        <file alias="ValueBox.qml">ui/mainsheet/ValueBox.qml</file>
+        <file alias="SkillValueBox.qml">ui/mainsheet/SkillValueBox.qml</file>
+        <file alias="SkillsAreaTextColumn.qml">ui/mainsheet/SkillsAreaTextColumn.qml</file>
+        <file alias="AbilityScoresArea.qml">ui/mainsheet/AbilityScoresArea.qml</file>
+        <file alias="HitPointsArea.qml">ui/mainsheet/HitPointsArea.qml</file>
+        <file alias="LabeledValueBox.qml">ui/mainsheet/LabeledValueBox.qml</file>
+        <file alias="GapText.qml">ui/mainsheet/GapText.qml</file>
+        <file alias="ArmourClassArea.qml">ui/mainsheet/ArmourClassArea.qml</file>
+        <file alias="Area.qml">ui/mainsheet/Area.qml</file>
+        <file alias="SecondaryACArea.qml">ui/mainsheet/SecondaryACArea.qml</file>
+        <file alias="SavesArea.qml">ui/mainsheet/SavesArea.qml</file>
+        <file alias="BabArea.qml">ui/mainsheet/BabArea.qml</file>
+        <file alias="RoundedDescriptionBox.qml">ui/mainsheet/RoundedDescriptionBox.qml</file>
+        <file alias="CombatManeuversArea.qml">ui/mainsheet/CombatManeuversArea.qml</file>
+        <file alias="Spacer.qml">ui/mainsheet/Spacer.qml</file>
+        <file alias="MovementsArea.qml">ui/mainsheet/MovementsArea.qml</file>
+        <file alias="ModifiersListView.qml">ui/mainsheet/ModifiersListView.qml</file>
+        <file alias="SpellsArea.qml">ui/mainsheet/SpellsArea.qml</file>
+        <file alias="CharacterSheet.qml">ui/mainsheet/CharacterSheet.qml</file>
         <file>Bonus.qml</file>
         <file>Save.qml</file>
-        <file>ModifiersListView.qml</file>
         <file>SpellsPane.qml</file>
         <file>SpellDelegate.qml</file>
-        <file>SpellsArea.qml</file>
         <file>prep_spells.js</file>
-        <file>CharacterSheet.qml</file>
     </qresource>
 </RCC>
