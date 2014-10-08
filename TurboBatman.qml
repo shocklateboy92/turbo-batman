@@ -56,6 +56,11 @@ ApplicationWindow {
                 asynchronous: true
             }
 
+            Tab {
+                title: "Prepared Spells"
+                source: "ui/prep_spells/PreparedSpells.qml"
+            }
+
             id: tabview_main
             anchors.fill: parent
             anchors.margins: 5
