@@ -2,6 +2,7 @@
 #include "FilterProxyModel.h"
 #include "Modifier.h"
 #include "ModifierSource.h"
+#include "PreparedSpellsModel.h"
 #include "ProjectContext.h"
 #include "Sizes.h"
 #include "Spell.h"
@@ -23,6 +24,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<Spell>("org.lasath.turbo_batman", 1, 0, "Spell");
     qmlRegisterType<SpellsModel>("org.lasath.turbo_batman", 1, 0, "SpellsModel");
     qmlRegisterType<FilterProxyModel>("org.lasath.turbo_batman", 1, 0, "FilterProxyModel");
+    qmlRegisterType<PreparedSpellsModel>("org.lasath.turbo_batman", 1, 0, "PreparedSpellsModel");
+
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("spells.db");
