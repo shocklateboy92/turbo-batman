@@ -20,7 +20,7 @@ Text {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            batman.currentAttribute = modelData;
+            main_sheet.currentAttribute = modelData;
         }
     }
 }
