@@ -47,7 +47,7 @@ ApplicationWindow {
 
             Tab {
                 title: "Main Sheet"
-                source: "CharacterSheet.qml"
+                source: "ui/mainsheet/CharacterSheet.qml"
             }
 
             Tab {
