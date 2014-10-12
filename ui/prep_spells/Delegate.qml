@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import org.lasath.turbo_batman 1.0
 
 Rectangle {
     id: root
@@ -15,7 +16,7 @@ Rectangle {
 //        visible: false
         text: "yolo"
         font.pointSize: 24
-        enabled: true
+//        enabled: true
         readOnly: true
         onReadOnlyChanged: {
             if (!readOnly) {
@@ -26,11 +27,49 @@ Rectangle {
         onAccepted: {
             console.debug("accepted!")
             root.state = "";
+            deselect();
         }
         onActiveFocusChanged: {
             if (!activeFocus) {
-                root.state = -1;
+                root.state = "";
             }
+        }
+        property bool blockUpdate: false
+//        Keys.onPressed: {
+//            completer.setPrefix(text);
+//        }
+        onTextChanged: {
+            if (!blockUpdate) {
+                blockUpdate = true;
+                completer.setPrefix(text);
+                blockUpdate = false;
+            }
+        }
+    }
+
+    property alias completionModel: completer.sourceModel
+    Completer {
+        id: completer
+//        prefix: name_input.text
+//        onBestMatchChanged: function(match) {
+//            console.log(match);
+////            name_input.text = match;
+//        }
+        onBestMatchChanged: {
+            console.log("derp!" + text);
+            var cur = name_input.cursorPosition;
+//            name_input.cursorPosition = cur;
+//            name_input.moveCursorSelection(text.length, TextInput.SelectCharacters)
+            console.log(cur);
+            console.log(text.length);
+            name_input.text = text;
+            name_input.select(cur, text.length);
+//            if (text.length > name_input.text.length) {
+//                var oldtext = name_input.text;
+//                name_input.text = text;
+////                name_input.select(text.length, oldtext.length);
+//                name_input.select(0, 3);
+//            }
         }
     }
 

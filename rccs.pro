@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     SpellsModel.cpp \
     ProjectContext.cpp \
     FilterProxyModel.cpp \
-    PreparedSpellsModel.cpp
+    PreparedSpellsModel.cpp \
+    Completer.cpp
 
 RESOURCES += qml.qrc
 
@@ -32,7 +33,8 @@ HEADERS += \
     SpellsModel.h \
     ProjectContext.h \
     FilterProxyModel.h \
-    PreparedSpellsModel.h
+    PreparedSpellsModel.h \
+    Completer.h
 
 OTHER_FILES += \
     init_db.py

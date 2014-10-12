@@ -1,4 +1,5 @@
 #include "Attribute.h"
+#include "Completer.h"
 #include "FilterProxyModel.h"
 #include "Modifier.h"
 #include "ModifierSource.h"
@@ -25,6 +26,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<SpellsModel>("org.lasath.turbo_batman", 1, 0, "SpellsModel");
     qmlRegisterType<FilterProxyModel>("org.lasath.turbo_batman", 1, 0, "FilterProxyModel");
     qmlRegisterType<PreparedSpellsModel>("org.lasath.turbo_batman", 1, 0, "PreparedSpellsModel");
+    qmlRegisterType<Completer>("org.lasath.turbo_batman", 1, 0, "Completer");
 
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");

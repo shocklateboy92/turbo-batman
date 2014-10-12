@@ -17,6 +17,7 @@ Item {
         spacing: 10
         delegate: Delegate {
             width: parent.width
+            completionModel: turbo_batman.spells_db
         }
 
         section.property: "level"
