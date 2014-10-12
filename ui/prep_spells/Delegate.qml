@@ -10,6 +10,8 @@ Rectangle {
     TextInput {
         id: name_input
         anchors.fill: parent
+        anchors.leftMargin: 10
+        anchors.rightMargin: anchors.leftMargin
 //        visible: false
         text: "yolo"
         font.pointSize: 24
@@ -25,6 +27,11 @@ Rectangle {
             console.debug("accepted!")
             root.state = "";
         }
+        onActiveFocusChanged: {
+            if (!activeFocus) {
+                root.state = -1;
+            }
+        }
     }
 
     MouseArea {
@@ -35,6 +42,7 @@ Rectangle {
             console.log("mosueEvent!")
         }
         enabled: true
+        hoverEnabled: true
     }
 
     SystemPalette {
@@ -42,6 +50,14 @@ Rectangle {
     }
 
     states: [
+        State {
+            name: "hovered"
+            when: mouse_area.containsMouse
+            PropertyChanges {
+                target: root
+                color: palette.highlight
+            }
+        },
         State {
             name: "editable"
             PropertyChanges {
