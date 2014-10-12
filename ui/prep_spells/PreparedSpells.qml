@@ -13,14 +13,17 @@ Item {
             source: turbo_batman.spells_db
             levelSlots: [8, 7, 7, 5, 5, 4, 3, 2]
         }
-        delegate: Text {
-            text: "Spell Name"
+
+        spacing: 10
+        delegate: Delegate {
+            width: parent.width
         }
 
         section.property: "level"
         section.criteria: ViewSection.FullString
         section.delegate: Text {
-            font.bold: true
+//            font.bold: true
+            font.pointSize: 36
             text: "Level " + section
         }
     }

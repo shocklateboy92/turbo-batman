@@ -37,5 +37,6 @@
         <file>ui/allspells/SpellsTab.qml</file>
         <file>ui/allspells/SpellDelegate.qml</file>
         <file>ui/prep_spells/PreparedSpells.qml</file>
+        <file>ui/prep_spells/Delegate.qml</file>
     </qresource>
 </RCC>

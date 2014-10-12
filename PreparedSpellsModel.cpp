@@ -34,7 +34,7 @@ void PreparedSpellsModel::initialize()
 
     for (int i = 0; i != m_levelSlots.length(); i++) {
         for (int j = 0; j < m_levelSlots[i]; j++) {
-            m_data.append({i});
+            m_data.append({i, ""});
         }
     }
 }
@@ -61,7 +61,8 @@ QVariant PreparedSpellsModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> PreparedSpellsModel::roleNames() const
 {
     return {
-        {Qt::UserRole, "level"}
+        {Qt::UserRole, "level"},
+        {Qt::UserRole + 1, "name"}
     };
 }
 
