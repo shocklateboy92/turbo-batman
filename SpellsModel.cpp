@@ -1,5 +1,4 @@
 #include "SpellsModel.h"
-
 #include <QDebug>
 #include <QSqlError>
 #include <QSqlRecord>

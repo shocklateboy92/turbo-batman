@@ -38,6 +38,7 @@ ApplicationWindow {
 
                             // I'm scared by this, but it works
                             asynchronous: true
+
                         }
                         model: 10
 

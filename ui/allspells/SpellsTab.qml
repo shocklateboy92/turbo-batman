@@ -56,6 +56,7 @@ Item {
 
                 clip: true
                 model: FilterProxyModel {
+                    filterRole: "name"
                     source: turbo_batman.spells_db
                     searchString: filter_field.text
                 }

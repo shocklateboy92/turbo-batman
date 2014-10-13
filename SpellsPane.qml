@@ -77,8 +77,9 @@ Item {
                     id: view
                     clip: true
                     model: FilterProxyModel {
+                        filterRole: "wiz"
                         source: turbo_batman.spells_db
-                        wizardLevel: modelData
+                        matchString: modelData
                     }
 
                     delegate: SpellDelegate {
