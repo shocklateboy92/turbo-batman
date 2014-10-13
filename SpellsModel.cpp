@@ -22,14 +22,19 @@ SpellsModel::SpellsModel(QObject *parent) :
     m_cols = m_query.record().count();
     for (int i = 0; i < m_cols; i++) {
         m_roles.insert(i + Qt::UserRole,
-                       m_query.record().field(i).name().toUtf8());
+                       m_query.record().field(i).name().toLatin1());
     }
 
-    // we're going to ghetto up two extra properties per spell
-    m_roles.insert(Qt::UserRole + m_cols, "num_prepped");
-    m_cols++;
-    m_roles.insert(Qt::UserRole + m_cols, "num_cast");
-    m_cols++;
+    // A set of extra roles, and the default values they should have
+    QList<QPair<QString, QVariant>> extra_roles = {
+        {"num_prepped", 0},
+        {"num_cast", 0}
+    };
+
+    for (auto r : extra_roles) {
+        m_roles.insert(Qt::UserRole + m_cols, r.first.toLatin1());
+        m_cols++;
+    }
 
     // stick all the data in a giant list, for direct access
     while (m_query.next()) {
@@ -40,9 +45,11 @@ SpellsModel::SpellsModel(QObject *parent) :
             l.append(m_query.value(i));
         }
 
-        // spell prep/cast counts
-        l.append(0);
-        l.append(0);
+        // stick our extra roles as well
+        for (auto r : extra_roles) {
+            l.append(r.second);
+        }
+
         m_data.append(l);
     }
 }
