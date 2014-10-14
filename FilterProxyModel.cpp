@@ -10,6 +10,7 @@ FilterProxyModel::FilterProxyModel(QObject *parent) :
     setFilterCaseSensitivity(Qt::CaseInsensitive);
 }
 
+
 QObject *FilterProxyModel::source() const
 {
     return m_source;
@@ -57,6 +58,7 @@ void FilterProxyModel::setMatchString(QString arg)
         m_matchString = arg;
         emit matchStringlChanged(arg);
         QSortFilterProxyModel::setFilterFixedString(arg);
+
     }
 }
 

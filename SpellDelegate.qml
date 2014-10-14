@@ -33,6 +33,13 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 10
+        checked: model.spell_known
+
+        Binding {
+            target: model
+            property: "spell_known"
+            value: checkboxKnown.checked
+        }
     }
     Text {
         id: textknown
@@ -48,6 +55,13 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: checkboxKnown.left
         anchors.rightMargin: 20
+        checked: model.spell_prepped
+
+        Binding {
+            target: model
+            property: "spell_prepped"
+            value: checkboxPrep.checked
+        }
     }
     Text {
         id: textPrep

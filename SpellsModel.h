@@ -1,6 +1,5 @@
 #ifndef SPELLSMODEL_H
 #define SPELLSMODEL_H
-
 #include <QAbstractListModel>
 #include <QSqlQuery>
 #include <QHash>
@@ -11,12 +10,6 @@ class SpellsModel : public QAbstractListModel
 public:
     explicit SpellsModel(QObject *parent = 0);
 
-signals:
-
-public slots:
-
-
-    // QAbstractItemModel interface
 public:
     virtual QHash<int, QByteArray> roleNames() const;
     virtual int rowCount(const QModelIndex &parent) const;

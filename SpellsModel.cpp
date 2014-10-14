@@ -28,7 +28,9 @@ SpellsModel::SpellsModel(QObject *parent) :
     // A set of extra roles, and the default values they should have
     QList<QPair<QString, QVariant>> extra_roles = {
         {"num_prepped", 0},
-        {"num_cast", 0}
+        {"num_cast", 0},
+        {"spell_known", false},
+        {"spell_prepped", false}
     };
 
     for (auto r : extra_roles) {
@@ -41,7 +43,7 @@ SpellsModel::SpellsModel(QObject *parent) :
         QList<QVariant> l;
         l.reserve(m_cols);
 
-        for (int i = 0; i < m_cols - 2; i++) {
+        for (int i = 0; i < m_cols - extra_roles.length(); i++) {
             l.append(m_query.value(i));
         }
 
@@ -75,6 +77,7 @@ QVariant SpellsModel::data(const QModelIndex &index, int role) const
 bool SpellsModel::setData(const QModelIndex &index,
                           const QVariant &value, int role)
 {
+    qDebug() << "writing " << value << "to" << index;
     if (index.isValid()) {
         auto col = role - Qt::UserRole;
         if (0 <= col && col < m_cols) {

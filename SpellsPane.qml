@@ -28,6 +28,8 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
                 var spellsState = {};
+                spellsState.d;
+                spellsState["d"];
                 spellsState.knownlist = [];
                 spellsState.preplist = [];
                 for ( var i = 0; i <view.count; i++){
