@@ -5,27 +5,35 @@ import QtQuick.Controls.Styles 1.2
 import org.lasath.turbo_batman 1.0
 
 Item {
-    ListView {
-        id: view
+    GroupBox {
+        title: "Spell Slots"
         anchors.fill: parent
+        anchors.margins: 5
 
-        model: PreparedSpellsModel {
-            source: turbo_batman.spells_db
-            levelSlots: [8, 7, 7, 5, 5, 4, 3, 2]
-        }
+        ListView {
+            id: view
+            anchors.fill: parent
 
-        spacing: 10
-        delegate: Delegate {
-            width: parent.width
-            completionModel: turbo_batman.spells_db
-        }
+            model: PreparedSpellsModel {
+                source: turbo_batman.spells_db
+                levelSlots: [8, 7, 7, 5, 5, 4, 3, 2]
+            }
 
-        section.property: "level"
-        section.criteria: ViewSection.FullString
-        section.delegate: Text {
-//            font.bold: true
-            font.pointSize: 36
-            text: "Level " + section
+            clip: true
+            spacing: 10
+            currentIndex: -1
+
+            delegate: Delegate {
+                width: parent.width
+//                completionModel: turbo_batman.spells_db
+            }
+
+            section.property: "level"
+            section.criteria: ViewSection.FullString
+            section.delegate: Text {
+                font.pointSize: 36
+                text: "Level " + section
+            }
         }
     }
 }

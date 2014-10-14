@@ -1,112 +1,85 @@
 import QtQuick 2.0
+import QtQuick.Controls 1.2
+import QtQuick.Layouts 1.1
 import org.lasath.turbo_batman 1.0
 
-Rectangle {
+Loader {
     id: root
-    height: name_input.implicitHeight
 
-    color: palette.alternateBase
-    radius: 5
-
-    TextInput {
-        id: name_input
-        anchors.fill: parent
-        anchors.leftMargin: 10
-        anchors.rightMargin: anchors.leftMargin
-//        visible: false
-        text: "yolo"
-        font.pointSize: 24
-//        enabled: true
-        readOnly: true
-        onReadOnlyChanged: {
-            if (!readOnly) {
-                selectAll();
-                forceActiveFocus();
-            }
-        }
-        onAccepted: {
-            console.debug("accepted!")
-            root.state = "";
-            deselect();
-        }
-        onActiveFocusChanged: {
-            if (!activeFocus) {
-                root.state = "";
-            }
-        }
-        property bool blockUpdate: false
-//        Keys.onPressed: {
-//            completer.setPrefix(text);
-//        }
-        onTextChanged: {
-            if (!blockUpdate) {
-                blockUpdate = true;
-                completer.setPrefix(text);
-                blockUpdate = false;
-            }
-        }
+    readonly property bool editing: ListView.isCurrentItem
+    function makeEditable() {
+        view.currentIndex = index;
     }
-
-    property alias completionModel: completer.sourceModel
-    Completer {
-        id: completer
-//        prefix: name_input.text
-//        onBestMatchChanged: function(match) {
-//            console.log(match);
-////            name_input.text = match;
-//        }
-        onBestMatchChanged: {
-            console.log("derp!" + text);
-            var cur = name_input.cursorPosition;
-//            name_input.cursorPosition = cur;
-//            name_input.moveCursorSelection(text.length, TextInput.SelectCharacters)
-            console.log(cur);
-            console.log(text.length);
-            name_input.text = text;
-            name_input.select(cur, text.length);
-//            if (text.length > name_input.text.length) {
-//                var oldtext = name_input.text;
-//                name_input.text = text;
-////                name_input.select(text.length, oldtext.length);
-//                name_input.select(0, 3);
-//            }
-        }
-    }
-
-    MouseArea {
-        id: mouse_area
-        anchors.fill: parent
-        onClicked: {
-            root.state = "editable";
-            console.log("mosueEvent!")
-        }
-        enabled: true
-        hoverEnabled: true
+    function makeUneditable() {
+        view.currentIndex = -1;
     }
 
     SystemPalette {
         id: palette
     }
 
-    states: [
-        State {
-            name: "hovered"
-            when: mouse_area.containsMouse
-            PropertyChanges {
-                target: root
-                color: palette.highlight
+    sourceComponent: editing ? editDelegate : defaultDelegate
+
+    Component {
+        id: defaultDelegate
+        Rectangle {
+            id: edit_root
+            height: layout.height
+            color: palette.window
+            radius: 5
+
+            RowLayout {
+                id: layout
+                width: parent.width
+                Text {
+//                    Layout.fillWidth: true
+                    font.pointSize: 24
+                    text: model.name
+                }
+                Button {
+                    id: edit_button
+                    text: "Edit"
+                    visible: false
+                    onClicked: makeEditable()
+                }
             }
-        },
-        State {
-            name: "editable"
-            PropertyChanges {
-                target: name_input
-                readOnly: false
+            MouseArea {
+                id: mouse_area
+                anchors.fill: parent
+                hoverEnabled: true
+                acceptedButtons: Qt.NoButton
             }
-            PropertyChanges {
-                target: mouse_area
-                enabled: false
+            states: [
+                State {
+                    name: "hovered"
+                    when: mouse_area.containsMouse
+                    PropertyChanges {
+                        target: edit_root
+                        color: palette.highlight
+                    }
+                    PropertyChanges {
+                        target: edit_button
+                        visible: true
+                    }
+                }
+            ]
+        }
+    }
+    Component {
+        id: editDelegate
+        TextField {
+            text: model.name
+            font.pointSize: 24
+            Component.onCompleted: {
+                selectAll();
+                forceActiveFocus();
+            }
+            onAccepted: {
+                deselect();
+                model.name = text;
+
+                makeUneditable();
             }
         }
-    ]
+    }
 }

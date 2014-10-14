@@ -34,7 +34,7 @@ void PreparedSpellsModel::initialize()
 
     for (int i = 0; i != m_levelSlots.length(); i++) {
         for (int j = 0; j < m_levelSlots[i]; j++) {
-            m_data.append({i, ""});
+            m_data.append({i, "Unprepared / Open"});
         }
     }
 }
