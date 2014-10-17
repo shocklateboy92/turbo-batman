@@ -10,19 +10,21 @@ class Completer : public QObject
                WRITE setPrefix NOTIFY prefixChanged)
     Q_PROPERTY(QObject* sourceModel READ sourceModel
                WRITE setSourceModel NOTIFY sourceModelChanged)
-    Q_PROPERTY(int spellId READ spellId NOTIFY spellIdChanged)
+    Q_PROPERTY(QString bestMatchId READ bestMatchId NOTIFY bestMatchIdChanged)
+    Q_PROPERTY(int bestMatchId READ bestMatchId NOTIFY bestMatchIdChanged)
 
 public:
     explicit Completer(QObject *parent = 0);
 
     QObject* 	sourceModel() const;
-    int 	spellId() const;
+    int 		bestMatchId() const;
+    QString 	bestMatch() const;
     QString 	prefix() const;
 
 signals:
     void sourceModelChanged(QObject* arg);
-    void spellIdChanged(int arg);
     void prefixChanged(QString arg);
+    void bestMatchIdChanged(int arg);
     void bestMatchChanged(const QString &text);
 
 public slots:
