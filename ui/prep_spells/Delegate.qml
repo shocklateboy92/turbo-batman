@@ -67,19 +67,60 @@ Loader {
     }
     Component {
         id: editDelegate
-        TextField {
-            text: model.name
-            font.pointSize: 24
-            Component.onCompleted: {
-                selectAll();
-                forceActiveFocus();
-            }
-            onAccepted: {
-                deselect();
-                model.name = text;
+        RowLayout {
+            TextField {
+                id: name_input
+                Layout.fillWidth: true
 
-                makeUneditable();
+                text: model.name
+                font.pointSize: 24
+                Component.onCompleted: {
+                    selectAll();
+                    forceActiveFocus();
+                }
+                onAccepted: {
+                    deselect();
+                    model.name = text;
+
+                    makeUneditable();
+                }
+                property bool updateBlocked: false
+                onTextChanged: {
+                    if (!updateBlocked) {
+                        updateBlocked = true;
+                        completer.setPrefix(text);
+                        updateBlocked = false;
+                    }
+                }
+
+                Completer {
+                    id: completer
+                    sourceModel: turbo_batman.spells_db
+                    onBestMatchChanged: {
+                        var cur = name_input.cursorPosition;
+                        if (text.length > cur) {
+                            name_input.text = text;
+                            name_input.select(cur, text.length);
+                        }
+                    }
+                }
             }
+
+            ComboBox {
+                Layout.preferredWidth: parent.width * 0.2
+                Layout.fillHeight: true
+                editable: true
+                onAccepted: makeUneditable();
+                onActiveFocusChanged: {
+                    if (activeFocus) {
+                        selectAll();
+                    }
+                }
+                // TODO: Take these from the Feats DB
+                model: ["No Metamagic", "Quickened", "Silenced",
+                        "Maximized", "Heightened", "Empowered"]
+            }
+
         }
     }
 }
