@@ -5,6 +5,7 @@
 #include <QSqlField>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QFile>
 
 SpellsModel::SpellsModel(QObject *parent) :
     QAbstractListModel(parent)
@@ -68,7 +69,13 @@ void SpellsModel::save() {
         }
         spellList[QString::number(row)] = spell;
     }
-    qDebug() << QJsonDocument(spellList).toJson();
+    QFile file ("prepped_spells.json");
+    file.open (QIODevice::WriteOnly | QIODevice::Text);
+    Q_ASSERT (file.isOpen());
+    QTextStream os(&file);
+    os << QJsonDocument(spellList).toJson();
+    file.close();
+
 }
 
 int SpellsModel::rowCount(const QModelIndex &parent) const
