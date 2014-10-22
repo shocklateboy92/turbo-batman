@@ -9,6 +9,7 @@ class SpellsModel : public QAbstractListModel
     Q_OBJECT
 public:
     explicit SpellsModel(QObject *parent = 0);
+    Q_INVOKABLE void save();
 
 public:
     virtual QHash<int, QByteArray> roleNames() const;
@@ -20,7 +21,7 @@ public:
 private:
     std::size_t m_size;
     int m_cols;
-
+    QVariantMap m_extraRoles;
     QHash<int, QByteArray> m_roles;
     QList<QList<QVariant>> m_data;
 };

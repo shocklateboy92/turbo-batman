@@ -27,17 +27,7 @@ Item {
             text: "Save"
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
-                var spellsState = {};
-                spellsState.d;
-                spellsState["d"];
-                spellsState.knownlist = [];
-                spellsState.preplist = [];
-                for ( var i = 0; i <view.count; i++){
-                    spellsState.knownlist[i] = view.itemAt(i).knownChecked
-                    spellsState.preplist[i] = view.itemAt(i).prepChecked
-                }
-                console.debug(JSON.stringify(spellsState))
-                turbo_batman.writeSpells(JSON.stringify(spellsState));
+                turbo_batman.spells_db.save();
             }
 
         }

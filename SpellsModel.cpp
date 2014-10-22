@@ -3,6 +3,8 @@
 #include <QSqlError>
 #include <QSqlRecord>
 #include <QSqlField>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 SpellsModel::SpellsModel(QObject *parent) :
     QAbstractListModel(parent)
@@ -32,6 +34,7 @@ SpellsModel::SpellsModel(QObject *parent) :
         {"spell_known", false},
         {"spell_prepped", false}
     };
+    m_extraRoles = extra_roles;
 
     for (auto r : extra_roles.keys()) {
         m_roles.insert(Qt::UserRole + m_cols, r.toLatin1());
@@ -54,6 +57,18 @@ SpellsModel::SpellsModel(QObject *parent) :
 
         m_data.append(l);
     }
+}
+
+void SpellsModel::save() {
+    QJsonObject spellList;
+    for (int row  = 0; row < m_data.length(); row++) {
+        QJsonObject spell;
+        for (int col = m_cols - m_extraRoles.size(); col < m_cols ; col++) {
+            spell[m_extraRoles.keys()[col - (m_cols - m_extraRoles.size())]] = QJsonValue::fromVariant(m_data.at(row).at(col));
+        }
+        spellList[QString::number(row)] = spell;
+    }
+    qDebug() << QJsonDocument(spellList).toJson();
 }
 
 int SpellsModel::rowCount(const QModelIndex &parent) const
