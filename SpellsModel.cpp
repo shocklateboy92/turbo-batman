@@ -75,7 +75,28 @@ void SpellsModel::save() {
     QTextStream os(&file);
     os << QJsonDocument(spellList).toJson();
     file.close();
+}
 
+void SpellsModel::load() {
+    QFile file("prepped_spells.json");
+    file.open(QIODevice::ReadOnly);
+    QTextStream textStream(&file);
+    QString data = textStream.readAll();
+    QJsonDocument spellList;
+    spellList = spellList.fromJson(data.toUtf8());
+    QVariantMap spellMap = spellList.object().toVariantMap();
+    beginResetModel();
+    for ( int row = 0; row < m_data.length(); row++) {
+        for (int col = m_cols - m_extraRoles.size(); col < m_cols; col++){
+            QString rowString = QString::number(row);
+            QString colString = m_extraRoles.keys()[col - (m_cols - m_extraRoles.size())];
+            QVariant spell = spellMap[rowString];
+            m_data[row][col] = spell.toMap()[colString];
+
+
+        }
+    }
+    endResetModel();
 }
 
 int SpellsModel::rowCount(const QModelIndex &parent) const
@@ -99,7 +120,6 @@ QVariant SpellsModel::data(const QModelIndex &index, int role) const
 bool SpellsModel::setData(const QModelIndex &index,
                           const QVariant &value, int role)
 {
-    qDebug() << "writing " << value << "to" << index;
     if (index.isValid()) {
         auto col = role - Qt::UserRole;
         if (0 <= col && col < m_cols) {

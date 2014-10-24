@@ -10,7 +10,7 @@ class SpellsModel : public QAbstractListModel
 public:
     explicit SpellsModel(QObject *parent = 0);
     Q_INVOKABLE void save();
-
+    Q_INVOKABLE void load();
 public:
     virtual QHash<int, QByteArray> roleNames() const;
     virtual int rowCount(const QModelIndex &parent) const;
